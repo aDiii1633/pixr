@@ -1,0 +1,19 @@
+node_modules/
+.next/
+out/
+data/
+*.tsbuildinfo
+next-env.d.ts
+
+# secrets
+.env
+.env.local
+.env.*.local
+
+# Swytchcode: commit tooling.json/policies.json; bundles are re-fetched with `swytchcode bootstrap`
+.swytchcode/workspace.json
+.swytchcode/*.db
+
+.vercel
+.claude/
+

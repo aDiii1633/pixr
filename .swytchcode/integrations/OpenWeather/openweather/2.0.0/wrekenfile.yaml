@@ -1,0 +1,1575 @@
+VERSION: 2.0.2
+DEFAULTS:
+  w_base_url: https://api.openweathermap.org
+METHODS:
+  openweather.2.5.weather.list:
+    SUMMARY: Current weather (2.5)
+    DESC: Current weather for the given coordinates. Available on the free plan.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/2.5/weather
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - lat:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -90
+          MAXIMUM: 90
+      - lon:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -180
+          MAXIMUM: 180
+      - units:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          DEFAULT: standard
+          ENUM:
+            - standard
+            - metric
+            - imperial
+      - lang:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - sq
+            - af
+            - ar
+            - az
+            - eu
+            - be
+            - bg
+            - ca
+            - zh_cn
+            - zh_tw
+            - hr
+            - cz
+            - da
+            - nl
+            - en
+            - fi
+            - fr
+            - gl
+            - de
+            - el
+            - he
+            - hi
+            - hu
+            - is
+            - id
+            - it
+            - ja
+            - kr
+            - ku
+            - la
+            - lt
+            - mk
+            - "no"
+            - fa
+            - pl
+            - pt
+            - pt_br
+            - ro
+            - ru
+            - sr
+            - sk
+            - sl
+            - sp
+            - es
+            - sv
+            - se
+            - th
+            - tr
+            - ua
+            - uk
+            - vi
+            - zu
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(WeatherResponse)
+        RETURNVAR: openweather_2_5_weather_list
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.2.5.weather.list
+  openweather.2.5.forecast.list:
+    SUMMARY: 5 day / 3 hour forecast (2.5)
+    DESC: Forecast in 3-hour steps for the next 5 days (up to 40 entries). Available on the free plan.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/2.5/forecast
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - lat:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -90
+          MAXIMUM: 90
+      - lon:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -180
+          MAXIMUM: 180
+      - cnt:
+          TYPE: INT
+          REQUIRED: false
+          LOCATION: query
+          MINIMUM: 1
+          MAXIMUM: 40
+      - units:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          DEFAULT: standard
+          ENUM:
+            - standard
+            - metric
+            - imperial
+      - lang:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - sq
+            - af
+            - ar
+            - az
+            - eu
+            - be
+            - bg
+            - ca
+            - zh_cn
+            - zh_tw
+            - hr
+            - cz
+            - da
+            - nl
+            - en
+            - fi
+            - fr
+            - gl
+            - de
+            - el
+            - he
+            - hi
+            - hu
+            - is
+            - id
+            - it
+            - ja
+            - kr
+            - ku
+            - la
+            - lt
+            - mk
+            - "no"
+            - fa
+            - pl
+            - pt
+            - pt_br
+            - ro
+            - ru
+            - sr
+            - sk
+            - sl
+            - sp
+            - es
+            - sv
+            - se
+            - th
+            - tr
+            - ua
+            - uk
+            - vi
+            - zu
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(ForecastResponse)
+        RETURNVAR: openweather_2_5_forecast_list
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.2.5.forecast.list
+  openweather.4.0.current.list:
+    SUMMARY: Current weather
+    DESC: Returns one record with the current weather conditions for the given coordinates.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/4.0/onecall/current
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - lat:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -90
+          MAXIMUM: 90
+      - lon:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -180
+          MAXIMUM: 180
+      - units:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          DEFAULT: standard
+          ENUM:
+            - standard
+            - metric
+            - imperial
+      - lang:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - sq
+            - af
+            - ar
+            - az
+            - eu
+            - be
+            - bg
+            - ca
+            - zh_cn
+            - zh_tw
+            - hr
+            - cz
+            - da
+            - nl
+            - en
+            - fi
+            - fr
+            - gl
+            - de
+            - el
+            - he
+            - hi
+            - hu
+            - is
+            - id
+            - it
+            - ja
+            - kr
+            - ku
+            - la
+            - lt
+            - mk
+            - "no"
+            - fa
+            - pl
+            - pt
+            - pt_br
+            - ro
+            - ru
+            - sr
+            - sk
+            - sl
+            - sp
+            - es
+            - sv
+            - se
+            - th
+            - tr
+            - ua
+            - uk
+            - vi
+            - zu
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(CurrentResponse)
+        RETURNVAR: openweather_4_0_current_list
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.4.0.current.list
+  openweather.4.0.1min.list:
+    SUMMARY: 1-minute precipitation timeline
+    DESC: Up to 60 records covering the next 60 minutes of precipitation.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/4.0/onecall/timeline/1min
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - lat:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -90
+          MAXIMUM: 90
+      - lon:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -180
+          MAXIMUM: 180
+      - start:
+          TYPE: INT
+          REQUIRED: false
+          LOCATION: query
+          FORMAT: int64
+      - units:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          DEFAULT: standard
+          ENUM:
+            - standard
+            - metric
+            - imperial
+      - lang:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - sq
+            - af
+            - ar
+            - az
+            - eu
+            - be
+            - bg
+            - ca
+            - zh_cn
+            - zh_tw
+            - hr
+            - cz
+            - da
+            - nl
+            - en
+            - fi
+            - fr
+            - gl
+            - de
+            - el
+            - he
+            - hi
+            - hu
+            - is
+            - id
+            - it
+            - ja
+            - kr
+            - ku
+            - la
+            - lt
+            - mk
+            - "no"
+            - fa
+            - pl
+            - pt
+            - pt_br
+            - ro
+            - ru
+            - sr
+            - sk
+            - sl
+            - sp
+            - es
+            - sv
+            - se
+            - th
+            - tr
+            - ua
+            - uk
+            - vi
+            - zu
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(MinutelyTimelineResponse)
+        RETURNVAR: openweather_4_0_1min_list
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.4.0.1min.list
+  openweather.4.0.15min.list:
+    SUMMARY: 15-minute timeline
+    DESC: Up to 50 records per page; forecast covers the next 48 hours.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/4.0/onecall/timeline/15min
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - lat:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -90
+          MAXIMUM: 90
+      - lon:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -180
+          MAXIMUM: 180
+      - start:
+          TYPE: INT
+          REQUIRED: false
+          LOCATION: query
+          FORMAT: int64
+      - units:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          DEFAULT: standard
+          ENUM:
+            - standard
+            - metric
+            - imperial
+      - lang:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - sq
+            - af
+            - ar
+            - az
+            - eu
+            - be
+            - bg
+            - ca
+            - zh_cn
+            - zh_tw
+            - hr
+            - cz
+            - da
+            - nl
+            - en
+            - fi
+            - fr
+            - gl
+            - de
+            - el
+            - he
+            - hi
+            - hu
+            - is
+            - id
+            - it
+            - ja
+            - kr
+            - ku
+            - la
+            - lt
+            - mk
+            - "no"
+            - fa
+            - pl
+            - pt
+            - pt_br
+            - ro
+            - ru
+            - sr
+            - sk
+            - sl
+            - sp
+            - es
+            - sv
+            - se
+            - th
+            - tr
+            - ua
+            - uk
+            - vi
+            - zu
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(IntervalTimelineResponse)
+        RETURNVAR: openweather_4_0_15min_list
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.4.0.15min.list
+  openweather.4.0.1h.list:
+    SUMMARY: Hourly timeline
+    DESC: Up to 20 records per page; historical data plus 48-hour forecast.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/4.0/onecall/timeline/1h
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - lat:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -90
+          MAXIMUM: 90
+      - lon:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -180
+          MAXIMUM: 180
+      - start:
+          TYPE: INT
+          REQUIRED: false
+          LOCATION: query
+          FORMAT: int64
+      - units:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          DEFAULT: standard
+          ENUM:
+            - standard
+            - metric
+            - imperial
+      - lang:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - sq
+            - af
+            - ar
+            - az
+            - eu
+            - be
+            - bg
+            - ca
+            - zh_cn
+            - zh_tw
+            - hr
+            - cz
+            - da
+            - nl
+            - en
+            - fi
+            - fr
+            - gl
+            - de
+            - el
+            - he
+            - hi
+            - hu
+            - is
+            - id
+            - it
+            - ja
+            - kr
+            - ku
+            - la
+            - lt
+            - mk
+            - "no"
+            - fa
+            - pl
+            - pt
+            - pt_br
+            - ro
+            - ru
+            - sr
+            - sk
+            - sl
+            - sp
+            - es
+            - sv
+            - se
+            - th
+            - tr
+            - ua
+            - uk
+            - vi
+            - zu
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(IntervalTimelineResponse)
+        RETURNVAR: openweather_4_0_1h_list
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.4.0.1h.list
+  openweather.4.0.1day.list:
+    SUMMARY: Daily timeline
+    DESC: Up to 10 records per page; historical data plus forecast up to 1.5 years ahead.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/4.0/onecall/timeline/1day
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - lat:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -90
+          MAXIMUM: 90
+      - lon:
+          TYPE: FLOAT
+          REQUIRED: true
+          LOCATION: query
+          FORMAT: double
+          MINIMUM: -180
+          MAXIMUM: 180
+      - start:
+          TYPE: INT
+          REQUIRED: false
+          LOCATION: query
+          FORMAT: int64
+      - units:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          DEFAULT: standard
+          ENUM:
+            - standard
+            - metric
+            - imperial
+      - lang:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - sq
+            - af
+            - ar
+            - az
+            - eu
+            - be
+            - bg
+            - ca
+            - zh_cn
+            - zh_tw
+            - hr
+            - cz
+            - da
+            - nl
+            - en
+            - fi
+            - fr
+            - gl
+            - de
+            - el
+            - he
+            - hi
+            - hu
+            - is
+            - id
+            - it
+            - ja
+            - kr
+            - ku
+            - la
+            - lt
+            - mk
+            - "no"
+            - fa
+            - pl
+            - pt
+            - pt_br
+            - ro
+            - ru
+            - sr
+            - sk
+            - sl
+            - sp
+            - es
+            - sv
+            - se
+            - th
+            - tr
+            - ua
+            - uk
+            - vi
+            - zu
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(DailyTimelineResponse)
+        RETURNVAR: openweather_4_0_1day_list
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.4.0.1day.list
+  openweather.4.0.alert.get:
+    SUMMARY: Weather alert details
+    DESC: Full details for an alert ID returned in the `alerts` array of other endpoints.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /data/4.0/onecall/alert/{alert_id}
+      HEADERS: {}
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY: []
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - alert_id:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: path
+      - appid:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: query
+    RETURNS:
+      - RETURNTYPE: STRUCT(Alert)
+        RETURNVAR: openweather_4_0_alert_get
+        STATUS: 200
+    ERRORS:
+      - TYPE: STRUCT(Error)
+        STATUS: 400
+        WHEN: Missing or invalid parameters. (HTTP 400)
+      - TYPE: STRUCT(Error)
+        STATUS: 401
+        WHEN: Missing or invalid API key, or no One Call subscription. (HTTP 401)
+      - TYPE: STRUCT(Error)
+        STATUS: 404
+        WHEN: No data available for the requested parameters. (HTTP 404)
+      - TYPE: STRUCT(Error)
+        STATUS: 429
+        WHEN: Call quota exceeded. (HTTP 429)
+      - TYPE: STRUCT(Error)
+        STATUS: 500
+        WHEN: Unexpected server error (5xx). (HTTP default)
+    CANONICAL_ID: openweather.4.0.alert.get
+STRUCTS:
+  Coord:
+    - name: lat
+      TYPE: FLOAT
+      REQUIRED: false
+      FORMAT: double
+    - name: lon
+      TYPE: FLOAT
+      REQUIRED: false
+      FORMAT: double
+  Wind:
+    - name: speed
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: m/s or mph
+    - name: deg
+      TYPE: INT
+      REQUIRED: false
+      comment: Wind direction, degrees
+    - name: gust
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: m/s or mph
+  MainReadings:
+    - name: temp
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: feels_like
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: temp_min
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: temp_max
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: pressure
+      TYPE: INT
+      REQUIRED: false
+      comment: Sea-level pressure, hPa
+    - name: humidity
+      TYPE: INT
+      REQUIRED: false
+      comment: Humidity, %
+    - name: sea_level
+      TYPE: INT
+      REQUIRED: false
+      comment: hPa
+    - name: grnd_level
+      TYPE: INT
+      REQUIRED: false
+      comment: hPa
+    - name: temp_kf
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Internal parameter (forecast only)
+  WeatherResponse_clouds:
+    - name: all
+      TYPE: INT
+      REQUIRED: false
+      comment: Cloudiness, %
+  WeatherResponse_sys:
+    - name: type
+      TYPE: INT
+      REQUIRED: false
+    - name: id
+      TYPE: INT
+      REQUIRED: false
+    - name: country
+      TYPE: STRING
+      REQUIRED: false
+      comment: ISO 3166 country code
+    - name: sunrise
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: sunset
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+  WeatherResponse:
+    - name: coord
+      TYPE: STRUCT(Coord)
+      REQUIRED: false
+    - name: weather
+      TYPE: "[]STRUCT(WeatherCondition)"
+      REQUIRED: false
+    - name: base
+      TYPE: STRING
+      REQUIRED: false
+    - name: main
+      TYPE: STRUCT(MainReadings)
+      REQUIRED: false
+    - name: visibility
+      TYPE: INT
+      REQUIRED: false
+      comment: Metres, max 10000
+    - name: wind
+      TYPE: STRUCT(Wind)
+      REQUIRED: false
+    - name: rain
+      TYPE: STRUCT(Precipitation1h)
+      REQUIRED: false
+    - name: snow
+      TYPE: STRUCT(Precipitation1h)
+      REQUIRED: false
+    - name: clouds
+      TYPE: STRUCT(WeatherResponse_clouds)
+      REQUIRED: false
+    - name: dt
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: sys
+      TYPE: STRUCT(WeatherResponse_sys)
+      REQUIRED: false
+    - name: timezone
+      TYPE: INT
+      REQUIRED: false
+      comment: Shift in seconds from UTC
+    - name: id
+      TYPE: INT
+      REQUIRED: false
+      comment: City ID
+    - name: name
+      TYPE: STRING
+      REQUIRED: false
+      comment: City name
+    - name: cod
+      TYPE: INT
+      REQUIRED: false
+  Precipitation3h:
+    - name: 3h
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Volume for the last 3 hours, mm
+  ForecastItem_clouds:
+    - name: all
+      TYPE: INT
+      REQUIRED: false
+  ForecastItem_sys:
+    - name: pod
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - d
+        - "n"
+      comment: Part of day
+  ForecastItem:
+    - name: dt
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: main
+      TYPE: STRUCT(MainReadings)
+      REQUIRED: false
+    - name: weather
+      TYPE: "[]STRUCT(WeatherCondition)"
+      REQUIRED: false
+    - name: clouds
+      TYPE: STRUCT(ForecastItem_clouds)
+      REQUIRED: false
+    - name: wind
+      TYPE: STRUCT(Wind)
+      REQUIRED: false
+    - name: visibility
+      TYPE: INT
+      REQUIRED: false
+    - name: pop
+      TYPE: FLOAT
+      REQUIRED: false
+      MINIMUM: 0
+      MAXIMUM: 1
+    - name: rain
+      TYPE: STRUCT(Precipitation3h)
+      REQUIRED: false
+    - name: snow
+      TYPE: STRUCT(Precipitation3h)
+      REQUIRED: false
+    - name: sys
+      TYPE: STRUCT(ForecastItem_sys)
+      REQUIRED: false
+    - name: dt_txt
+      TYPE: STRING
+      REQUIRED: false
+      comment: Forecast time, UTC (YYYY-MM-DD HH:MM:SS)
+  ForecastResponse_city:
+    - name: id
+      TYPE: INT
+      REQUIRED: false
+    - name: name
+      TYPE: STRING
+      REQUIRED: false
+    - name: coord
+      TYPE: STRUCT(Coord)
+      REQUIRED: false
+    - name: country
+      TYPE: STRING
+      REQUIRED: false
+    - name: population
+      TYPE: INT
+      REQUIRED: false
+    - name: timezone
+      TYPE: INT
+      REQUIRED: false
+    - name: sunrise
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: sunset
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+  ForecastResponse:
+    - name: cod
+      TYPE: STRING
+      REQUIRED: false
+    - name: message
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: cnt
+      TYPE: INT
+      REQUIRED: false
+    - name: list
+      TYPE: "[]STRUCT(ForecastItem)"
+      REQUIRED: false
+    - name: city
+      TYPE: STRUCT(ForecastResponse_city)
+      REQUIRED: false
+  Error_cod:
+    - name: _COMPOSITION
+      TYPE: ONE_OF
+      REQUIRED: false
+    - name: variant_0
+      TYPE: INT
+      REQUIRED: false
+    - name: variant_1
+      TYPE: STRING
+      REQUIRED: false
+  Error:
+    - name: cod
+      TYPE: STRUCT(Error_cod)
+      REQUIRED: false
+      comment: Error code (integer on One Call, sometimes a string on 2.5)
+    - name: message
+      TYPE: STRING
+      REQUIRED: false
+    - name: parameters
+      TYPE: "[]STRING"
+      REQUIRED: false
+  WeatherCondition:
+    - name: id
+      TYPE: INT
+      REQUIRED: false
+      comment: Weather condition code
+    - name: main
+      TYPE: STRING
+      REQUIRED: false
+      comment: Group of weather parameters (Rain, Snow, Clouds, ...)
+    - name: description
+      TYPE: STRING
+      REQUIRED: false
+      comment: Condition within the group (localized via lang)
+    - name: icon
+      TYPE: STRING
+      REQUIRED: false
+      comment: Weather icon ID
+  Precipitation1h:
+    - name: 1h
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Precipitation, mm/h
+  CurrentWeather:
+    - name: dt
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+      comment: Unix UTC timestamp
+    - name: temp
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Temperature (K, °C or °F per units)
+    - name: feels_like
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: pressure
+      TYPE: INT
+      REQUIRED: false
+      comment: Sea-level pressure, hPa
+    - name: humidity
+      TYPE: INT
+      REQUIRED: false
+      comment: Humidity, %
+    - name: dew_point
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: uvi
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: UV index
+    - name: clouds
+      TYPE: INT
+      REQUIRED: false
+      comment: Cloudiness, %
+    - name: visibility
+      TYPE: INT
+      REQUIRED: false
+      comment: Visibility in metres, max 10000
+    - name: wind_speed
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: m/s or mph
+    - name: wind_gust
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: m/s or mph (when available)
+    - name: wind_deg
+      TYPE: INT
+      REQUIRED: false
+      comment: Wind direction, degrees
+    - name: rain
+      TYPE: STRUCT(Precipitation1h)
+      REQUIRED: false
+    - name: snow
+      TYPE: STRUCT(Precipitation1h)
+      REQUIRED: false
+    - name: weather
+      TYPE: "[]STRUCT(WeatherCondition)"
+      REQUIRED: false
+    - name: alerts
+      TYPE: "[]STRING"
+      REQUIRED: false
+    - name: sunrise
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: sunset
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+  IntervalWeather:
+    - name: dt
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+      comment: Unix UTC timestamp
+    - name: temp
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Temperature (K, °C or °F per units)
+    - name: feels_like
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: pressure
+      TYPE: INT
+      REQUIRED: false
+      comment: Sea-level pressure, hPa
+    - name: humidity
+      TYPE: INT
+      REQUIRED: false
+      comment: Humidity, %
+    - name: dew_point
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: uvi
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: UV index
+    - name: clouds
+      TYPE: INT
+      REQUIRED: false
+      comment: Cloudiness, %
+    - name: visibility
+      TYPE: INT
+      REQUIRED: false
+      comment: Visibility in metres, max 10000
+    - name: wind_speed
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: m/s or mph
+    - name: wind_gust
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: m/s or mph (when available)
+    - name: wind_deg
+      TYPE: INT
+      REQUIRED: false
+      comment: Wind direction, degrees
+    - name: rain
+      TYPE: STRUCT(Precipitation1h)
+      REQUIRED: false
+    - name: snow
+      TYPE: STRUCT(Precipitation1h)
+      REQUIRED: false
+    - name: weather
+      TYPE: "[]STRUCT(WeatherCondition)"
+      REQUIRED: false
+    - name: alerts
+      TYPE: "[]STRING"
+      REQUIRED: false
+    - name: pop
+      TYPE: FLOAT
+      REQUIRED: false
+      MINIMUM: 0
+      MAXIMUM: 1
+      comment: Probability of precipitation
+  MinutelyWeather:
+    - name: dt
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: precipitation
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Precipitation, mm/h
+    - name: alerts
+      TYPE: "[]STRING"
+      REQUIRED: false
+  DailyWeather_temp:
+    - name: day
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: min
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: max
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: night
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: eve
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: morn
+      TYPE: FLOAT
+      REQUIRED: false
+  DailyWeather_feels_like:
+    - name: day
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: night
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: eve
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: morn
+      TYPE: FLOAT
+      REQUIRED: false
+  DailyWeather:
+    - name: dt
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: sunrise
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: sunset
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: moonrise
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: moonset
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: moon_phase
+      TYPE: FLOAT
+      REQUIRED: false
+      MINIMUM: 0
+      MAXIMUM: 1
+      comment: 0/1 new moon, 0.25 first quarter, 0.5 full moon, 0.75 last quarter
+    - name: temp
+      TYPE: STRUCT(DailyWeather_temp)
+      REQUIRED: false
+    - name: feels_like
+      TYPE: STRUCT(DailyWeather_feels_like)
+      REQUIRED: false
+    - name: pressure
+      TYPE: INT
+      REQUIRED: false
+    - name: humidity
+      TYPE: INT
+      REQUIRED: false
+    - name: dew_point
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: wind_speed
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: wind_gust
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: wind_deg
+      TYPE: INT
+      REQUIRED: false
+    - name: clouds
+      TYPE: INT
+      REQUIRED: false
+    - name: pop
+      TYPE: FLOAT
+      REQUIRED: false
+      MINIMUM: 0
+      MAXIMUM: 1
+    - name: uvi
+      TYPE: FLOAT
+      REQUIRED: false
+    - name: rain
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Precipitation volume, mm (when available)
+    - name: snow
+      TYPE: FLOAT
+      REQUIRED: false
+      comment: Snow volume, mm (when available)
+    - name: weather
+      TYPE: "[]STRUCT(WeatherCondition)"
+      REQUIRED: false
+    - name: alerts
+      TYPE: "[]STRING"
+      REQUIRED: false
+  CurrentResponse:
+    - name: lat
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: lon
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: timezone
+      TYPE: STRING
+      REQUIRED: true
+      comment: IANA timezone name
+    - name: timezone_offset
+      TYPE: INT
+      REQUIRED: true
+      comment: Shift in seconds from UTC
+    - name: data
+      TYPE: "[]STRUCT(CurrentWeather)"
+      REQUIRED: false
+      MAX_ITEMS: 1
+  MinutelyTimelineResponse:
+    - name: lat
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: lon
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: timezone
+      TYPE: STRING
+      REQUIRED: true
+      comment: IANA timezone name
+    - name: timezone_offset
+      TYPE: INT
+      REQUIRED: true
+      comment: Shift in seconds from UTC
+    - name: prev
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: uri
+      comment: URL of the previous page
+    - name: next
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: uri
+      comment: URL of the next page
+    - name: data
+      TYPE: "[]STRUCT(MinutelyWeather)"
+      REQUIRED: false
+  IntervalTimelineResponse:
+    - name: lat
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: lon
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: timezone
+      TYPE: STRING
+      REQUIRED: true
+      comment: IANA timezone name
+    - name: timezone_offset
+      TYPE: INT
+      REQUIRED: true
+      comment: Shift in seconds from UTC
+    - name: prev
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: uri
+      comment: URL of the previous page
+    - name: next
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: uri
+      comment: URL of the next page
+    - name: data
+      TYPE: "[]STRUCT(IntervalWeather)"
+      REQUIRED: false
+  DailyTimelineResponse:
+    - name: lat
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: lon
+      TYPE: FLOAT
+      REQUIRED: true
+      FORMAT: double
+    - name: timezone
+      TYPE: STRING
+      REQUIRED: true
+      comment: IANA timezone name
+    - name: timezone_offset
+      TYPE: INT
+      REQUIRED: true
+      comment: Shift in seconds from UTC
+    - name: prev
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: uri
+      comment: URL of the previous page
+    - name: next
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: uri
+      comment: URL of the next page
+    - name: data
+      TYPE: "[]STRUCT(DailyWeather)"
+      REQUIRED: false
+  Alert_description_Item:
+    - name: language
+      TYPE: STRING
+      REQUIRED: false
+    - name: description
+      TYPE: STRING
+      REQUIRED: false
+  Alert:
+    - name: id
+      TYPE: STRING
+      REQUIRED: false
+    - name: sender_name
+      TYPE: STRING
+      REQUIRED: false
+      comment: Issuing agency
+    - name: event
+      TYPE: STRING
+      REQUIRED: false
+    - name: start
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: end
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int64
+    - name: description
+      TYPE: "[]STRUCT(Alert_description_Item)"
+      REQUIRED: false
+    - name: tags
+      TYPE: "[]STRING"
+      REQUIRED: false

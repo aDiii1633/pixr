@@ -1,0 +1,19 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Apply multiple updates to a document atomically",
+      "canonical_id": "google_docs.documentidbatchupdate.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new document with a specified title",
+      "canonical_id": "google_docs.document.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve the latest version of a specific document",
+      "canonical_id": "google_docs.document.get"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Batch update presentation with multiple changes",
+      "canonical_id": "google_slides.presentationidbatchupdate.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new presentation with a given title and optional ID",
+      "canonical_id": "google_slides.presentation.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a presentation page thumbnail URL",
+      "canonical_id": "google_slides.page.thumbnail.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the latest version of a presentation by its ID",
+      "canonical_id": "google_slides.presentation.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the latest version of a specific presentation page",
+      "canonical_id": "google_slides.page.get"
+    }
+  ]
+}

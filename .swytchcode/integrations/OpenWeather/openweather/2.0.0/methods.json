@@ -1,0 +1,44 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Get 1-minute precipitation forecast for the next hour",
+      "canonical_id": "openweather.4.0.1min.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get 15-minute weather forecast data for a location",
+      "canonical_id": "openweather.4.0.15min.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a 5-day, 3-hour weather forecast",
+      "canonical_id": "openweather.2.5.forecast.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get current weather conditions for specific coordinates",
+      "canonical_id": "openweather.4.0.current.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get current weather data by coordinates",
+      "canonical_id": "openweather.2.5.weather.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get daily historical and forecast data",
+      "canonical_id": "openweather.4.0.1day.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get detailed weather alert information by alert ID",
+      "canonical_id": "openweather.4.0.alert.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get hourly weather data for a location",
+      "canonical_id": "openweather.4.0.1h.list"
+    }
+  ]
+}

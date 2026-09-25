@@ -1,0 +1,59 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Create a new space",
+      "canonical_id": "google_meet.space.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "End an active conference call",
+      "canonical_id": "google_meet.nameendactiveconference.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a recording by its ID",
+      "canonical_id": "google_meet.resource.execute"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get conference call transcripts",
+      "canonical_id": "google_meet.transcript.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get smart notes from a conference record",
+      "canonical_id": "google_meet.smartnote.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get transcript entries for a transcript",
+      "canonical_id": "google_meet.entry.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List conference recordings with optional pagination and sorting",
+      "canonical_id": "google_meet.recording.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List conference records, with optional filtering and pagination",
+      "canonical_id": "google_meet.conferencerecord.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List participant sessions for a conference record",
+      "canonical_id": "google_meet.participantsession.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List participants in a conference record",
+      "canonical_id": "google_meet.participant.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update meeting space details",
+      "canonical_id": "google_meet.resource.execute1"
+    }
+  ]
+}

@@ -1,0 +1,779 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Add a new H.323 or SIP device to your Zoom account",
+      "canonical_id": "zoom.device.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a panelist to a webinar",
+      "canonical_id": "zoom.panelist.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a registrant to a webinar",
+      "canonical_id": "zoom.registrant.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a user's TSP account",
+      "canonical_id": "zoom.tsp.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add an additional plan to a sub-account",
+      "canonical_id": "zoom.plan.addons.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add assistants to a user",
+      "canonical_id": "zoom.assistant.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add members to a group",
+      "canonical_id": "zoom.member.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add members to an IM group",
+      "canonical_id": "zoom.group.members.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check if a user's email already exists",
+      "canonical_id": "zoom.email.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Check if a user's personal meeting room name is available",
+      "canonical_id": "zoom.vanity_name.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new group for your account",
+      "canonical_id": "zoom.group.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new instant messaging group",
+      "canonical_id": "zoom.group.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new user account",
+      "canonical_id": "zoom.user.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a poll for a meeting",
+      "canonical_id": "zoom.poll.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a poll for a webinar",
+      "canonical_id": "zoom.poll.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a sub account under your master account",
+      "canonical_id": "zoom.account.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a tracking field on your Zoom account",
+      "canonical_id": "zoom.tracking_field.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a webinar for a user",
+      "canonical_id": "zoom.webinar.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a group",
+      "canonical_id": "zoom.group.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a meeting by its ID",
+      "canonical_id": "zoom.meeting.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a meeting's recordings",
+      "canonical_id": "zoom.recording.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific meeting recording",
+      "canonical_id": "zoom.recording.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a tracking field by its ID",
+      "canonical_id": "zoom.tracking_field.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a user from your account",
+      "canonical_id": "zoom.user.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a webhook by its ID",
+      "canonical_id": "zoom.webhook.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete all of a user's schedulers",
+      "canonical_id": "zoom.scheduler.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete an IM group",
+      "canonical_id": "zoom.group.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a group by its ID",
+      "canonical_id": "zoom.group.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of users on your account",
+      "canonical_id": "zoom.user.list1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of webinars, including live or past ones",
+      "canonical_id": "zoom.webinar.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a meeting's registrants",
+      "canonical_id": "zoom.registrant.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific poll for a meeting",
+      "canonical_id": "zoom.poll.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific poll for a webinar",
+      "canonical_id": "zoom.poll.get3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific tracking field by its ID",
+      "canonical_id": "zoom.tracking_field.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific user's details",
+      "canonical_id": "zoom.user.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a sub account under a master account",
+      "canonical_id": "zoom.account.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a sub account's managed domains",
+      "canonical_id": "zoom.managed_domain.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's assistants",
+      "canonical_id": "zoom.assistant.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's authentication token",
+      "canonical_id": "zoom.token.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's meetings",
+      "canonical_id": "zoom.meeting.get3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's meetings report, including ended meetings for a specified period",
+      "canonical_id": "zoom.user.meetings.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's PAC accounts",
+      "canonical_id": "zoom.pac.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's permissions",
+      "canonical_id": "zoom.permission.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's schedulers",
+      "canonical_id": "zoom.scheduler.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's settings",
+      "canonical_id": "zoom.setting.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's TSP account information",
+      "canonical_id": "zoom.tsp.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a webinar's panelists",
+      "canonical_id": "zoom.panelist.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a webinar's registrants",
+      "canonical_id": "zoom.registrant.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get all polls for a specific meeting",
+      "canonical_id": "zoom.poll.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get all recordings for a specific meeting",
+      "canonical_id": "zoom.recording.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get all recordings for a user",
+      "canonical_id": "zoom.recording.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get an IM group by its ID",
+      "canonical_id": "zoom.group.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get billing details for a sub account",
+      "canonical_id": "zoom.billing.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get cloud recording usage report for the last 6 months",
+      "canonical_id": "zoom.cloud_recording.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get CRC port usage hour by hour",
+      "canonical_id": "zoom.crc.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get daily reports for the past six months",
+      "canonical_id": "zoom.daily.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get details for a past meeting",
+      "canonical_id": "zoom.past_meeting.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get ended webinar instances by webinar ID",
+      "canonical_id": "zoom.instance.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get hosts report, including active or inactive status",
+      "canonical_id": "zoom.user.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get IM chat messages for a specific session",
+      "canonical_id": "zoom.chat.sessions.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get instant messaging chat sessions",
+      "canonical_id": "zoom.chat.sessions.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get meeting details for a specific meeting",
+      "canonical_id": "zoom.meeting.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get meeting details report",
+      "canonical_id": "zoom.meeting.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get meeting invitation details",
+      "canonical_id": "zoom.invitation.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get meeting participant quality of service",
+      "canonical_id": "zoom.meeting.qos.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get meeting participant quality of service",
+      "canonical_id": "zoom.meeting.qos.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get meeting participant sharing and recording details",
+      "canonical_id": "zoom.meeting.sharing.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get meeting recording settings",
+      "canonical_id": "zoom.recording.settings.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get members of an IM group",
+      "canonical_id": "zoom.group.members.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get participants for a specific meeting",
+      "canonical_id": "zoom.meeting.participants.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get participants for a specific meeting",
+      "canonical_id": "zoom.meeting.participants.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get participants from a past meeting",
+      "canonical_id": "zoom.participant.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get past meeting instances by meeting ID",
+      "canonical_id": "zoom.instance.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get plan details for a sub-account",
+      "canonical_id": "zoom.plan.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get polls for a specific webinar",
+      "canonical_id": "zoom.poll.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get polls report for a specific meeting",
+      "canonical_id": "zoom.meeting.polls.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get specific meeting details",
+      "canonical_id": "zoom.meeting.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get sub account settings by ID",
+      "canonical_id": "zoom.setting.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get telephone report for a specified period",
+      "canonical_id": "zoom.telephone.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get TSP information for an account",
+      "canonical_id": "zoom.tsp.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webhook details by ID",
+      "canonical_id": "zoom.webhook.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar details and ended webinar reports",
+      "canonical_id": "zoom.webinar.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar details by ID",
+      "canonical_id": "zoom.webinar.get3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar details for live or past events",
+      "canonical_id": "zoom.webinar.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar participant quality of service",
+      "canonical_id": "zoom.webinar.qos.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar participant quality of service",
+      "canonical_id": "zoom.webinar.qos.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar participant sharing and recording details",
+      "canonical_id": "zoom.webinar.sharing.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar participants for a specific webinar",
+      "canonical_id": "zoom.webinar.participants.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar participants for a specific webinar",
+      "canonical_id": "zoom.webinar.participants.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar polls report",
+      "canonical_id": "zoom.webinar.polls.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webinar Q\u0026A report",
+      "canonical_id": "zoom.webinar.qa.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get Zoom IM metrics",
+      "canonical_id": "zoom.im.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get Zoom Room details by its ID",
+      "canonical_id": "zoom.zoomroom.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all registered webhooks",
+      "canonical_id": "zoom.webhook.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all sub accounts under the master account",
+      "canonical_id": "zoom.account.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all zoom rooms on the account",
+      "canonical_id": "zoom.zoomroom.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List groups associated with your account",
+      "canonical_id": "zoom.group.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List H.323 and SIP devices on your Zoom account",
+      "canonical_id": "zoom.device.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List IM groups under your account",
+      "canonical_id": "zoom.group.list1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List meetings, including live and past ones",
+      "canonical_id": "zoom.meeting.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List members of a specific group",
+      "canonical_id": "zoom.member.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List tracking fields on your Zoom account",
+      "canonical_id": "zoom.tracking_field.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List user's TSP accounts",
+      "canonical_id": "zoom.tsp.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List webinars for a specific user",
+      "canonical_id": "zoom.webinar.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Recover a meeting recording",
+      "canonical_id": "zoom.recording.status.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Recover a meeting's recordings",
+      "canonical_id": "zoom.recording.status.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Register a participant for a meeting",
+      "canonical_id": "zoom.registrant.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Register a webhook for account events",
+      "canonical_id": "zoom.webhook.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a member from a group",
+      "canonical_id": "zoom.member.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a member from an IM group",
+      "canonical_id": "zoom.group.members.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a panelist from a webinar",
+      "canonical_id": "zoom.panelist.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific assistant for a user",
+      "canonical_id": "zoom.assistant.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific poll from a meeting",
+      "canonical_id": "zoom.poll.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific poll from a webinar",
+      "canonical_id": "zoom.poll.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific scheduler for a user",
+      "canonical_id": "zoom.scheduler.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a user's TSP account",
+      "canonical_id": "zoom.tsp.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a webinar by its ID",
+      "canonical_id": "zoom.webinar.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove account association",
+      "canonical_id": "zoom.account.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove all assistants for a user",
+      "canonical_id": "zoom.assistant.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove all panelists from a webinar",
+      "canonical_id": "zoom.panelist.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove H.323/SIP device from Zoom account",
+      "canonical_id": "zoom.device.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Revoke a user's SSO token",
+      "canonical_id": "zoom.token.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Schedule a meeting for a user",
+      "canonical_id": "zoom.meeting.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Subscribe plans for a sub account",
+      "canonical_id": "zoom.plan.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Switch webhook version",
+      "canonical_id": "zoom.option.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a group's details",
+      "canonical_id": "zoom.group.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a meeting registrant's status",
+      "canonical_id": "zoom.registrant.status.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a meeting's live stream settings",
+      "canonical_id": "zoom.livestream.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a meeting's live stream status",
+      "canonical_id": "zoom.livestream.status.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a meeting's poll",
+      "canonical_id": "zoom.poll.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a meeting's status",
+      "canonical_id": "zoom.statu.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a paid sub account's base plan when billed by the master account",
+      "canonical_id": "zoom.plan.base.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a sub account's options",
+      "canonical_id": "zoom.option.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a tracking field on your Zoom account",
+      "canonical_id": "zoom.tracking_field.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a user's email address",
+      "canonical_id": "zoom.email.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a user's information",
+      "canonical_id": "zoom.user.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a user's password",
+      "canonical_id": "zoom.password.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a user's settings",
+      "canonical_id": "zoom.setting.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a user's status",
+      "canonical_id": "zoom.statu.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a user's TSP account",
+      "canonical_id": "zoom.tsp.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a webinar registrant's status",
+      "canonical_id": "zoom.registrant.status.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a webinar's poll",
+      "canonical_id": "zoom.poll.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a webinar's status",
+      "canonical_id": "zoom.statu.update2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update account's TSP information",
+      "canonical_id": "zoom.tsp.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an additional plan for a sub account",
+      "canonical_id": "zoom.plan.addons.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an existing webhook",
+      "canonical_id": "zoom.webhook.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an existing webinar's details",
+      "canonical_id": "zoom.webinar.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an H.323/SIP device on your Zoom account",
+      "canonical_id": "zoom.device.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an IM group's details",
+      "canonical_id": "zoom.group.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update billing details for a paid sub-account",
+      "canonical_id": "zoom.billing.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update meeting details",
+      "canonical_id": "zoom.meeting.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update meeting recording settings",
+      "canonical_id": "zoom.recording.settings.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update sub-account settings for a master account",
+      "canonical_id": "zoom.setting.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Upload a user's profile picture",
+      "canonical_id": "zoom.picture.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Verify a user's zpk and check if it's expired",
+      "canonical_id": "zoom.zpk.list"
+    }
+  ]
+}

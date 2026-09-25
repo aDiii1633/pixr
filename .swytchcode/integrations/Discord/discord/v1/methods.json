@@ -1,0 +1,934 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Add a custom emoji to an application",
+      "canonical_id": "discord.emoji.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a member to a lobby",
+      "canonical_id": "discord.member.update2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a role to a guild member",
+      "canonical_id": "discord.member.roles.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a user to a group direct message channel",
+      "canonical_id": "discord.recipient.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a user to a guild",
+      "canonical_id": "discord.member.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add my reaction to a message in a channel",
+      "canonical_id": "discord.message.me.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Approve or reject a guild join request",
+      "canonical_id": "discord.request.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Ban a user from a guild",
+      "canonical_id": "discord.ban.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Bulk update members in a lobby",
+      "canonical_id": "discord.member.bulk.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Consume an entitlement for a specific application",
+      "canonical_id": "discord.entitlement.consume.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a bot token for partner SDK",
+      "canonical_id": "discord.token.bot.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a direct message channel with a user",
+      "canonical_id": "discord.me.channels.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new application command for a specific application",
+      "canonical_id": "discord.command.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new channel within a guild",
+      "canonical_id": "discord.channel.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new entitlement for an application",
+      "canonical_id": "discord.entitlement.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new guild template from a guild",
+      "canonical_id": "discord.template.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new lobby",
+      "canonical_id": "discord.lobby.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new role for a guild",
+      "canonical_id": "discord.role.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new thread from a message in a channel",
+      "canonical_id": "discord.message.threads.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new thread in a channel",
+      "canonical_id": "discord.thread.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a response to an interaction",
+      "canonical_id": "discord.callback.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a webhook for a specific channel",
+      "canonical_id": "discord.webhook.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create an invite for a specific channel",
+      "canonical_id": "discord.invite.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create or join a lobby",
+      "canonical_id": "discord.lobby.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Crosspost a message to another channel",
+      "canonical_id": "discord.message.crosspost.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a guild emoji by ID",
+      "canonical_id": "discord.emoji.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a guild template by code",
+      "canonical_id": "discord.template.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a message from a channel",
+      "canonical_id": "discord.message.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a role from a guild",
+      "canonical_id": "discord.role.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific channel by its ID",
+      "canonical_id": "discord.channel.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific command for an application",
+      "canonical_id": "discord.command.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific message from a webhook",
+      "canonical_id": "discord.message.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a sticker from a guild",
+      "canonical_id": "discord.sticker.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a webhook by its ID",
+      "canonical_id": "discord.webhook.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a webhook using its ID and token",
+      "canonical_id": "discord.webhook.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete an emoji from an application",
+      "canonical_id": "discord.emoji.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete an original webhook message",
+      "canonical_id": "discord.message.original.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete multiple messages from a channel",
+      "canonical_id": "discord.message.delete2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Edit a message in a channel",
+      "canonical_id": "discord.message.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Execute a GitHub-compatible webhook",
+      "canonical_id": "discord.github.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Execute a webhook with optional parameters",
+      "canonical_id": "discord.webhook.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Expire a poll in a specific channel",
+      "canonical_id": "discord.poll.expire.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Follow a channel by its ID",
+      "canonical_id": "discord.follower.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Generate an SDK token for partner authentication",
+      "canonical_id": "discord.token.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a guild template by its code",
+      "canonical_id": "discord.template.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a guild's widget image",
+      "canonical_id": "discord.widget.png.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a guild's widget information",
+      "canonical_id": "discord.widget.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of application commands",
+      "canonical_id": "discord.command.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a preview of a guild's information",
+      "canonical_id": "discord.preview.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific channel's details",
+      "canonical_id": "discord.channel.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific emoji for an application",
+      "canonical_id": "discord.emoji.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific emoji from a guild",
+      "canonical_id": "discord.emoji.get3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific entitlement for an application",
+      "canonical_id": "discord.entitlement.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific member from a guild",
+      "canonical_id": "discord.member.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific role within a guild",
+      "canonical_id": "discord.role.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific sticker by its ID",
+      "canonical_id": "discord.sticker.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific sticker from a guild",
+      "canonical_id": "discord.sticker.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific user's ban from a guild",
+      "canonical_id": "discord.ban.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's role connection for a specific application",
+      "canonical_id": "discord.me.roleConnection.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get active threads for a specific guild",
+      "canonical_id": "discord.thread.active.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get all emojis for a specific guild",
+      "canonical_id": "discord.emoji.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get application commands for a specific guild",
+      "canonical_id": "discord.guild.commands.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get bot gateway information",
+      "canonical_id": "discord.bot.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get details for a specific application",
+      "canonical_id": "discord.application.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get entitlements for the current user's application",
+      "canonical_id": "discord.me.entitlements.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get guild application command permissions",
+      "canonical_id": "discord.guild.permissions.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get guild information by ID",
+      "canonical_id": "discord.guild.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get guild join requests, filter by status",
+      "canonical_id": "discord.request.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get guild widget settings",
+      "canonical_id": "discord.widget.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get lobby details by lobby ID",
+      "canonical_id": "discord.lobby.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get member counts for roles in a guild",
+      "canonical_id": "discord.role.memberCounts.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get messages from a specific channel",
+      "canonical_id": "discord.message.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get my application details",
+      "canonical_id": "discord.me.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get my OAuth2 applications",
+      "canonical_id": "discord.application.me.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get my OAuth2 authorization details",
+      "canonical_id": "discord.me.list1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get pinned messages for a specific channel",
+      "canonical_id": "discord.message.pins.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the current user's guild member information",
+      "canonical_id": "discord.me.member.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the current user's OpenID Connect information",
+      "canonical_id": "discord.userinfo.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the current user's profile",
+      "canonical_id": "discord.me.list2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get user details by their ID",
+      "canonical_id": "discord.user.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get voters for a specific poll answer in a channel",
+      "canonical_id": "discord.poll.answers.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webhooks for a specific guild",
+      "canonical_id": "discord.webhook.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Invite a user to a lobby",
+      "canonical_id": "discord.member.invites.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Invite yourself to a lobby",
+      "canonical_id": "discord.member.invites.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Leave a guild by its ID",
+      "canonical_id": "discord.me.guilds.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all available templates for a specific guild",
+      "canonical_id": "discord.template.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all banned members from a guild",
+      "canonical_id": "discord.ban.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all channels for a specific guild",
+      "canonical_id": "discord.channel.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all invites for a specific guild",
+      "canonical_id": "discord.invite.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all roles for a specific guild",
+      "canonical_id": "discord.role.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List available voice regions",
+      "canonical_id": "discord.region.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List emojis for a specific application",
+      "canonical_id": "discord.emoji.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List guilds the current user is a member of",
+      "canonical_id": "discord.me.guilds.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List integrations for a specific guild",
+      "canonical_id": "discord.integration.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List invites for a specific channel",
+      "canonical_id": "discord.invite.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List members of a specific guild",
+      "canonical_id": "discord.member.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List my connections",
+      "canonical_id": "discord.me.connections.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List my private archived threads in a channel",
+      "canonical_id": "discord.user.private.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List permissions for application commands in a guild",
+      "canonical_id": "discord.guild.permissions.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List pinned messages in a channel",
+      "canonical_id": "discord.pin.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List private archived threads in a channel",
+      "canonical_id": "discord.thread.private.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List public archived threads in a channel",
+      "canonical_id": "discord.thread.public.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List reactions for a specific emoji on a message",
+      "canonical_id": "discord.message.reactions.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List stickers for a specific guild",
+      "canonical_id": "discord.sticker.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List subscriptions for a specific SKU, optionally filtered by user and date",
+      "canonical_id": "discord.subscription.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List voice regions available for a specific guild",
+      "canonical_id": "discord.region.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List webhooks for a specific channel",
+      "canonical_id": "discord.webhook.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Pin a message to a channel",
+      "canonical_id": "discord.pin.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Pin a message to a channel",
+      "canonical_id": "discord.message.pins.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Preview guild pruning by days and roles",
+      "canonical_id": "discord.prune.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Prune members from a guild",
+      "canonical_id": "discord.prune.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Register a slash command for a guild application",
+      "canonical_id": "discord.guild.commands.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a channel permission overwrite",
+      "canonical_id": "discord.permission.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a guild application command",
+      "canonical_id": "discord.guild.commands.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a guild integration",
+      "canonical_id": "discord.integration.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a member from a lobby",
+      "canonical_id": "discord.member.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a pinned message from a channel",
+      "canonical_id": "discord.pin.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a pinned message from a channel",
+      "canonical_id": "discord.message.pins.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a role from a guild member",
+      "canonical_id": "discord.member.roles.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific lobby by its ID",
+      "canonical_id": "discord.lobby.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a specific user's reaction from a message",
+      "canonical_id": "discord.message.reactions.delete2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a user from a group direct message channel",
+      "canonical_id": "discord.recipient.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a user from a guild",
+      "canonical_id": "discord.member.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a user's role connection for an application",
+      "canonical_id": "discord.me.roleConnection.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove all reactions for a specific emoji from a message",
+      "canonical_id": "discord.message.reactions.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove all reactions from a specific message in a channel",
+      "canonical_id": "discord.message.reactions.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove an entitlement from an application",
+      "canonical_id": "discord.entitlement.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove myself from a lobby",
+      "canonical_id": "discord.member.me.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove your reaction from a message",
+      "canonical_id": "discord.message.me.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Resolve an invite code to get invite details",
+      "canonical_id": "discord.invite.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific application command by its ID",
+      "canonical_id": "discord.command.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific guild application command by its ID",
+      "canonical_id": "discord.guild.commands.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific message from a channel",
+      "canonical_id": "discord.message.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific message from a webhook",
+      "canonical_id": "discord.message.get3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific subscription for a given SKU and subscription ID",
+      "canonical_id": "discord.subscription.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific webhook by its ID",
+      "canonical_id": "discord.webhook.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve entitlements for a specific application",
+      "canonical_id": "discord.entitlement.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve gateway information",
+      "canonical_id": "discord.gateway.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve guild onboarding information",
+      "canonical_id": "discord.onboarding.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve messages for a specific lobby",
+      "canonical_id": "discord.message.get2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve original webhook message details",
+      "canonical_id": "discord.message.original.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve public keys",
+      "canonical_id": "discord.key.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve webhook details using its ID and token",
+      "canonical_id": "discord.webhook.get3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Revoke an invite using its code",
+      "canonical_id": "discord.invite.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search for members within a specific guild",
+      "canonical_id": "discord.member.search.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search for threads within a specific channel",
+      "canonical_id": "discord.thread.search.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search messages within a guild",
+      "canonical_id": "discord.message.search.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send a message to a specific channel",
+      "canonical_id": "discord.message.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send a message to a specific lobby",
+      "canonical_id": "discord.message.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send a Slack-compatible webhook message",
+      "canonical_id": "discord.slack.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send a typing indicator to a channel",
+      "canonical_id": "discord.typing.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Unban a user from a guild",
+      "canonical_id": "discord.ban.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a channel's permission overwrite",
+      "canonical_id": "discord.permission.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a guild application command",
+      "canonical_id": "discord.guild.commands.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a guild emoji by ID",
+      "canonical_id": "discord.emoji.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a guild member's information",
+      "canonical_id": "discord.member.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a guild sticker by ID",
+      "canonical_id": "discord.sticker.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a guild template by its code",
+      "canonical_id": "discord.template.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a guild template with a specific code",
+      "canonical_id": "discord.template.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a guild's settings",
+      "canonical_id": "discord.guild.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a specific channel's settings",
+      "canonical_id": "discord.channel.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a specific lobby's details",
+      "canonical_id": "discord.lobby.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a specific message in a webhook thread",
+      "canonical_id": "discord.message.original.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a specific role within a guild",
+      "canonical_id": "discord.role.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a user's role connection for an application",
+      "canonical_id": "discord.me.roleConnection.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an application command",
+      "canonical_id": "discord.command.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an application's details",
+      "canonical_id": "discord.application.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an emoji for a specific application",
+      "canonical_id": "discord.emoji.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an existing webhook",
+      "canonical_id": "discord.webhook.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an existing webhook message",
+      "canonical_id": "discord.message.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update application commands in bulk",
+      "canonical_id": "discord.command.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update external moderation metadata for a lobby message",
+      "canonical_id": "discord.message.moderationMetadata.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update external moderation metadata for a user message",
+      "canonical_id": "discord.dm.moderationMetadata.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update guild application command permissions",
+      "canonical_id": "discord.guild.permissions.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update guild application commands",
+      "canonical_id": "discord.guild.commands.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update guild onboarding settings",
+      "canonical_id": "discord.onboarding.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update guild widget settings",
+      "canonical_id": "discord.widget.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update multiple guild channels at once",
+      "canonical_id": "discord.channel.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update my application details",
+      "canonical_id": "discord.me.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update my guild member information",
+      "canonical_id": "discord.member.me.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update my user profile",
+      "canonical_id": "discord.me.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update the positions of multiple roles in a guild",
+      "canonical_id": "discord.role.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update webhook details using its ID and token",
+      "canonical_id": "discord.webhook.update1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Upload a new emoji to a server",
+      "canonical_id": "discord.emoji.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Upload a sticker to a guild",
+      "canonical_id": "discord.sticker.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Upload an attachment for a specific application",
+      "canonical_id": "discord.attachment.create"
+    }
+  ]
+}

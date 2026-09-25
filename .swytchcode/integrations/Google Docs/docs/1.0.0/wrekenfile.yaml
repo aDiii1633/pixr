@@ -1,0 +1,2360 @@
+VERSION: 2.0.2
+DEFAULTS:
+  bearer_token: BEARER <ACCESS_TOKEN>
+  w_base_url: https://docs.googleapis.com
+METHODS:
+  google_docs.document.create:
+    SUMMARY: Creates a blank document using the title given in the request
+    DESC: Creates a blank document using the title given in the request. Other fields in the request, including any provided content, are ignored. Returns the created document.
+    HTTP:
+      METHOD: POST
+      ENDPOINT: /v1/documents
+      HEADERS:
+        Content-Type: application/json
+        Authorization: bearer_token
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+      BODY:
+        TYPE: STRUCT(Document)
+    SECURITY:
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.file
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - body:
+          TYPE: STRUCT(Document)
+          REQUIRED: false
+          LOCATION: body
+    RETURNS:
+      - RETURNTYPE: STRUCT(Document)
+        RETURNVAR: google_docs_document_create
+        STATUS: 200
+    CANONICAL_ID: google_docs.document.create
+  google_docs.document.get:
+    SUMMARY: Gets the latest version of the specified document.
+    DESC: Gets the latest version of the specified document.
+    HTTP:
+      METHOD: GET
+      ENDPOINT: /v1/documents/{documentId}
+      HEADERS:
+        Authorization: bearer_token
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+    SECURITY:
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents.readonly
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents.readonly
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.file
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.readonly
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.readonly
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - documentId:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: path
+      - includeTabsContent:
+          TYPE: BOOL
+          REQUIRED: false
+          LOCATION: query
+      - suggestionsViewMode:
+          TYPE: STRING
+          REQUIRED: false
+          LOCATION: query
+          ENUM:
+            - DEFAULT_FOR_CURRENT_ACCESS
+            - SUGGESTIONS_INLINE
+            - PREVIEW_SUGGESTIONS_ACCEPTED
+            - PREVIEW_WITHOUT_SUGGESTIONS
+    RETURNS:
+      - RETURNTYPE: STRUCT(Document)
+        RETURNVAR: google_docs_document_get
+        STATUS: 200
+    CANONICAL_ID: google_docs.document.get
+  google_docs.documentidbatchupdate.create:
+    SUMMARY: Applies one or more updates to the document
+    DESC: "Applies one or more updates to the document. Each request is validated before being applied. If any request is not valid, then the entire request will fail and nothing will be applied. Some requests have replies to give you some information about how they are applied. Other requests do not need to return information; these each return an empty reply. The order of replies matches that of the requests. For example, suppose you call batchUpdate with four updates, and only the third one returns information. The response would have two empty replies, the reply to the third request, and another empty reply, in that order. Because other users may be editing the document, the document might not exactly reflect your changes: your changes may be altered with respect to collaborator changes. If there are no collaborators, the document should reflect your changes. In any case, the updates in your request are guaranteed to be applied together atomically."
+    HTTP:
+      METHOD: POST
+      ENDPOINT: /v1/documents/{documentId}:batchUpdate
+      HEADERS:
+        Content-Type: application/json
+        Authorization: bearer_token
+      CONTENT_TYPE: application/json
+      ACCEPT: application/json
+      BODY:
+        TYPE: STRUCT(BatchUpdateDocumentRequest)
+    SECURITY:
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/documents
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive
+      - Oauth2:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.file
+        Oauth2c:
+          type: oauth2
+          scopes:
+            - https://www.googleapis.com/auth/drive.file
+    EXECUTION:
+      KIND: http
+      MODE: sync
+    INPUTS:
+      - documentId:
+          TYPE: STRING
+          REQUIRED: true
+          LOCATION: path
+      - body:
+          TYPE: STRUCT(BatchUpdateDocumentRequest)
+          REQUIRED: false
+          LOCATION: body
+    RETURNS:
+      - RETURNTYPE: STRUCT(BatchUpdateDocumentResponse)
+        RETURNVAR: google_docs_documentidbatchupdate_create
+        STATUS: 200
+    CANONICAL_ID: google_docs.documentidbatchupdate.create
+STRUCTS:
+  AddDocumentTabRequest:
+    - name: tabProperties
+      TYPE: STRUCT(TabProperties)
+      REQUIRED: false
+      comment: The properties of the tab to add. All properties are optional.
+  AddDocumentTabResponse:
+    - name: tabProperties
+      TYPE: STRUCT(TabProperties)
+      REQUIRED: false
+      comment: The properties of the newly added tab.
+  AutoText:
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. An AutoText may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this AutoText, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this AutoText.
+    - name: type
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - TYPE_UNSPECIFIED
+        - PAGE_NUMBER
+        - PAGE_COUNT
+      comment: The type of this auto text.
+  Background:
+    - name: color
+      TYPE: STRUCT(OptionalColor)
+      REQUIRED: false
+      comment: The background color.
+  BatchUpdateDocumentRequest:
+    - name: requests
+      TYPE: "[]STRUCT(Request)"
+      REQUIRED: false
+      comment: A list of updates to apply to the document.
+    - name: writeControl
+      TYPE: STRUCT(WriteControl)
+      REQUIRED: false
+      comment: Provides control over how write requests are executed.
+  BatchUpdateDocumentResponse:
+    - name: documentId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the document to which the updates were applied to.
+    - name: replies
+      TYPE: "[]STRUCT(Response)"
+      REQUIRED: false
+      comment: The reply of the updates. This maps 1:1 with the updates, although replies to some requests may be empty.
+    - name: writeControl
+      TYPE: STRUCT(WriteControl)
+      REQUIRED: false
+      comment: The updated write control after applying the request.
+  Body:
+    - name: content
+      TYPE: "[]STRUCT(StructuralElement)"
+      REQUIRED: false
+      comment: The contents of the body. The indexes for the body's content begin at zero.
+  BookmarkLink:
+    - name: id
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of a bookmark in this document.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the tab containing this bookmark.
+  Bullet:
+    - name: listId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the list this paragraph belongs to.
+    - name: nestingLevel
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The nesting level of this paragraph in the list.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The paragraph-specific text style applied to this bullet.
+  Color:
+    - name: rgbColor
+      TYPE: STRUCT(RgbColor)
+      REQUIRED: false
+      comment: The RGB color value.
+  ColumnBreak:
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A ColumnBreak may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this ColumnBreak, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this ColumnBreak. Similar to text content, like text runs and footnote references, the text style of a column break can affect content layout as well as the styling of text inserted next to it.
+  CreateFooterRequest:
+    - name: sectionBreakLocation
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: The location of the SectionBreak immediately preceding the section whose SectionStyle this footer should belong to. If this is unset or refers to the first section break in the document, the footer applies to the document style.
+    - name: type
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - HEADER_FOOTER_TYPE_UNSPECIFIED
+        - DEFAULT
+      comment: The type of footer to create.
+  CreateFooterResponse:
+    - name: footerId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the created footer.
+  CreateFootnoteRequest:
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the footnote reference at the end of the document body. Footnote references cannot be inserted inside a header, footer or footnote. Since footnote references can only be inserted in the body, the segment ID field must be empty.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the footnote reference at a specific index in the document. The footnote reference must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Footnote references cannot be inserted inside an equation, header, footer or footnote. Since footnote references can only be inserted in the body, the segment ID field must be empty.
+  CreateFootnoteResponse:
+    - name: footnoteId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the created footnote.
+  CreateHeaderRequest:
+    - name: sectionBreakLocation
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: The location of the SectionBreak which begins the section this header should belong to. If `section_break_location' is unset or if it refers to the first section break in the document body, the header applies to the DocumentStyle
+    - name: type
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - HEADER_FOOTER_TYPE_UNSPECIFIED
+        - DEFAULT
+      comment: The type of header to create.
+  CreateHeaderResponse:
+    - name: headerId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the created header.
+  CreateNamedRangeRequest:
+    - name: name
+      TYPE: STRING
+      REQUIRED: false
+      comment: The name of the NamedRange. Names do not need to be unique. Names must be at least 1 character and no more than 256 characters, measured in UTF-16 code units.
+    - name: range
+      TYPE: STRUCT(Range)
+      REQUIRED: false
+      comment: The range to apply the name to.
+  CreateNamedRangeResponse:
+    - name: namedRangeId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the created named range.
+  CreateParagraphBulletsRequest:
+    - name: bulletPreset
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - BULLET_GLYPH_PRESET_UNSPECIFIED
+        - BULLET_DISC_CIRCLE_SQUARE
+        - BULLET_DIAMONDX_ARROW3D_SQUARE
+        - BULLET_CHECKBOX
+        - BULLET_ARROW_DIAMOND_DISC
+        - BULLET_STAR_CIRCLE_SQUARE
+        - BULLET_ARROW3D_CIRCLE_SQUARE
+        - BULLET_LEFTTRIANGLE_DIAMOND_DISC
+        - BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE
+        - BULLET_DIAMOND_CIRCLE_SQUARE
+        - NUMBERED_DECIMAL_ALPHA_ROMAN
+        - NUMBERED_DECIMAL_ALPHA_ROMAN_PARENS
+        - NUMBERED_DECIMAL_NESTED
+        - NUMBERED_UPPERALPHA_ALPHA_ROMAN
+        - NUMBERED_UPPERROMAN_UPPERALPHA_DECIMAL
+        - NUMBERED_ZERODECIMAL_ALPHA_ROMAN
+      comment: The kinds of bullet glyphs to be used.
+    - name: range
+      TYPE: STRUCT(Range)
+      REQUIRED: false
+      comment: The range to apply the bullet preset to.
+  DateElement:
+    - name: dateElementProperties
+      TYPE: STRUCT(DateElementProperties)
+      REQUIRED: false
+      comment: The properties of this DateElement.
+    - name: dateId
+      TYPE: STRING
+      REQUIRED: false
+      READ_ONLY: true
+      comment: Output only. The unique ID of this date.
+    - name: suggestedDateElementPropertiesChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested changes to the date element properties, keyed by suggestion ID.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: IDs for suggestions that remove this date from the document. A DateElement might have multiple deletion IDs if, for example, multiple users suggest deleting it. If empty, then this date isn't suggested for deletion.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: IDs for suggestions that insert this date into the document. A DateElement might have multiple insertion IDs if it's a nested suggested change (a suggestion within a suggestion made by a different user, for example). If empty, then this date isn't a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this DateElement, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this DateElement.
+  DateElementProperties:
+    - name: dateFormat
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - DATE_FORMAT_UNSPECIFIED
+        - DATE_FORMAT_CUSTOM
+        - DATE_FORMAT_MONTH_DAY_ABBREVIATED
+        - DATE_FORMAT_MONTH_DAY_FULL
+        - DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED
+        - DATE_FORMAT_ISO8601
+      comment: Determines how the date part of the DateElement will be displayed in the document. If unset, the default value is DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED, indicating the DateElement will be formatted as `MMM d, y` in `en`, or locale specific equivalent.
+    - name: displayText
+      TYPE: STRING
+      REQUIRED: false
+      comment: Output only. Indicates how the DateElement is displayed in the document.
+    - name: locale
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The language code of the DateElement. For example, `en`. If unset, the default locale is `en`. Limited to the following locales: `af`, `am`, `ar`, `as`, `az`, `be`, `bg`, `bn`, `ca`, `cs`, `da`, `de`, `el`, `en`, `en-CA`, `en-GB`, `es`, `es-419`, `et`, `eu`, `fa`, `fi`, `fil`, `fr`, `fr-CA`, `gl`, `gu`, `hi`, `hr`, `hu`, `hy`, `id`, `is`, `it`, `iw`, `ja`, `ka`, `kk`, `km`, `kn`, `ko`, `lo`, `lt`, `lv`, `mk`, `ml`, `mn`, `mr`, `ms`, `ne`, `nl`, `no`, `or`, `pa`, `pl`, `pt-BR`, `pt-PT`, `ro`, `ru`, `si`, `sk`, `sl`, `sq`, `sr`, `sv`, `sw`, `ta`, `te`, `th`, `tr`, `uk`, `ur`, `uz`, `vi`, `zh-CN`, `zh-HK`, `zh-TW`, `zu`, `cy`, `my`."
+    - name: timeFormat
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - TIME_FORMAT_UNSPECIFIED
+        - TIME_FORMAT_DISABLED
+        - TIME_FORMAT_HOUR_MINUTE
+        - TIME_FORMAT_HOUR_MINUTE_TIMEZONE
+      comment: Determines how the time part of the DateElement will be displayed in the document. If unset, the default value is TIME_FORMAT_DISABLED, indicating no time should be shown.
+    - name: timeZoneId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The time zone of the DateElement, as defined by the Unicode Common Locale Data Repository (CLDR) project. For example, `America/New_York`. If unset, the default time zone is `etc/UTC`.
+    - name: timestamp
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-datetime
+      comment: "The point in time to represent, in seconds and nanoseconds since Unix epoch: January 1, 1970 at midnight UTC. Timestamp is expected to be in UTC. If time_zone_id is set, the timestamp is adjusted according to the time zone. For example, a timestamp of `18000` with a date format of `DATE_FORMAT_ISO8601` and time format of `TIME_FORMAT_HOUR_MINUTE` would be displayed as `1970-01-01 5:00 AM`. A timestamp of `18000` with date format of `DATE_FORMAT_ISO8601`, time format of `TIME_FORMAT_HOUR_MINUTE`, and time zone set to `America/New_York` will instead be `1970-01-01 12:00 AM`."
+  DeleteContentRangeRequest:
+    - name: range
+      TYPE: STRUCT(Range)
+      REQUIRED: false
+      comment: "The range of content to delete. Deleting text that crosses a paragraph boundary may result in changes to paragraph styles, lists, positioned objects and bookmarks as the two paragraphs are merged. Attempting to delete certain ranges can result in an invalid document structure in which case a 400 bad request error is returned. Some examples of invalid delete requests include: * Deleting one code unit of a surrogate pair. * Deleting the last newline character of a Body, Header, Footer, Footnote, TableCell or TableOfContents. * Deleting the start or end of a Table, TableOfContents or Equation without deleting the entire element. * Deleting the newline character before a Table, TableOfContents or SectionBreak without deleting the element. * Deleting individual rows or cells of a table. Deleting the content within a table cell is allowed."
+  DeleteFooterRequest:
+    - name: footerId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The id of the footer to delete. If this footer is defined on DocumentStyle, the reference to this footer is removed, resulting in no footer of that type for the first section of the document. If this footer is defined on a SectionStyle, the reference to this footer is removed and the footer of that type is now continued from the previous section.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab that contains the footer to delete. When omitted, the request is applied to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document."
+  DeleteHeaderRequest:
+    - name: headerId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The id of the header to delete. If this header is defined on DocumentStyle, the reference to this header is removed, resulting in no header of that type for the first section of the document. If this header is defined on a SectionStyle, the reference to this header is removed and the header of that type is now continued from the previous section.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab containing the header to delete. When omitted, the request is applied to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document."
+  DeleteNamedRangeRequest:
+    - name: name
+      TYPE: STRING
+      REQUIRED: false
+      comment: The name of the range(s) to delete. All named ranges with the given name will be deleted.
+    - name: namedRangeId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the named range to delete.
+    - name: tabsCriteria
+      TYPE: STRUCT(TabsCriteria)
+      REQUIRED: false
+      comment: "Optional. The criteria used to specify which tab(s) the range deletion should occur in. When omitted, the range deletion is applied to all tabs. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the range deletion applies to the singular tab. In a document containing multiple tabs: - If provided, the range deletion applies to the specified tabs. - If not provided, the range deletion applies to all tabs."
+  DeleteParagraphBulletsRequest:
+    - name: range
+      TYPE: STRUCT(Range)
+      REQUIRED: false
+      comment: The range to delete bullets from.
+  DeletePositionedObjectRequest:
+    - name: objectId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the positioned object to delete.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab that the positioned object to delete is in. When omitted, the request is applied to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document."
+  DeleteTabRequest:
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the tab to delete.
+  DeleteTableColumnRequest:
+    - name: tableCellLocation
+      TYPE: STRUCT(TableCellLocation)
+      REQUIRED: false
+      comment: The reference table cell location from which the column will be deleted. The column this cell spans will be deleted. If this is a merged cell that spans multiple columns, all columns that the cell spans will be deleted. If no columns remain in the table after this deletion, the whole table is deleted.
+  DeleteTableRowRequest:
+    - name: tableCellLocation
+      TYPE: STRUCT(TableCellLocation)
+      REQUIRED: false
+      comment: The reference table cell location from which the row will be deleted. The row this cell spans will be deleted. If this is a merged cell that spans multiple rows, all rows that the cell spans will be deleted. If no rows remain in the table after this deletion, the whole table is deleted.
+  Dimension:
+    - name: magnitude
+      TYPE: FLOAT
+      REQUIRED: false
+      FORMAT: double
+      comment: The magnitude.
+    - name: unit
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - UNIT_UNSPECIFIED
+        - PT
+      comment: The units for magnitude.
+  Document:
+    - name: body
+      TYPE: STRUCT(Body)
+      REQUIRED: false
+      comment: "Output only. The main body of the document. Legacy field: Instead, use Document.tabs.documentTab.body, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: documentId
+      TYPE: STRING
+      REQUIRED: false
+      comment: Output only. The ID of the document.
+    - name: documentStyle
+      TYPE: STRUCT(DocumentStyle)
+      REQUIRED: false
+      comment: "Output only. The style of the document. Legacy field: Instead, use Document.tabs.documentTab.documentStyle, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: footers
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The footers in the document, keyed by footer ID. Legacy field: Instead, use Document.tabs.documentTab.footers, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: footnotes
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The footnotes in the document, keyed by footnote ID. Legacy field: Instead, use Document.tabs.documentTab.footnotes, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: headers
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The headers in the document, keyed by header ID. Legacy field: Instead, use Document.tabs.documentTab.headers, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: inlineObjects
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The inline objects in the document, keyed by object ID. Legacy field: Instead, use Document.tabs.documentTab.inlineObjects, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: lists
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The lists in the document, keyed by list ID. Legacy field: Instead, use Document.tabs.documentTab.lists, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: namedRanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The named ranges in the document, keyed by name. Legacy field: Instead, use Document.tabs.documentTab.namedRanges, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: namedStyles
+      TYPE: STRUCT(NamedStyles)
+      REQUIRED: false
+      comment: "Output only. The named styles of the document. Legacy field: Instead, use Document.tabs.documentTab.namedStyles, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: positionedObjects
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The positioned objects in the document, keyed by object ID. Legacy field: Instead, use Document.tabs.documentTab.positionedObjects, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: revisionId
+      TYPE: STRING
+      REQUIRED: false
+      comment: Output only. The revision ID of the document. Can be used in update requests to specify which revision of a document to apply updates to and how the request should behave if the document has been edited since that revision. Only populated if the user has edit access to the document. The revision ID is not a sequential number but an opaque string. The format of the revision ID might change over time. A returned revision ID is only guaranteed to be valid for 24 hours after it has been returned and cannot be shared across users. If the revision ID is unchanged between calls, then the document has not changed. Conversely, a changed ID (for the same document and user) usually means the document has been updated. However, a changed ID can also be due to internal factors such as ID format changes.
+    - name: suggestedDocumentStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The suggested changes to the style of the document, keyed by suggestion ID. Legacy field: Instead, use Document.tabs.documentTab.suggestedDocumentStyleChanges, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: suggestedNamedStylesChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: "Output only. The suggested changes to the named styles of the document, keyed by suggestion ID. Legacy field: Instead, use Document.tabs.documentTab.suggestedNamedStylesChanges, which exposes the actual document content from all tabs when the includeTabsContent parameter is set to `true`. If `false` or unset, this field contains information about the first tab in the document."
+    - name: suggestionsViewMode
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - DEFAULT_FOR_CURRENT_ACCESS
+        - SUGGESTIONS_INLINE
+        - PREVIEW_SUGGESTIONS_ACCEPTED
+        - PREVIEW_WITHOUT_SUGGESTIONS
+      comment: "Output only. The suggestions view mode applied to the document. Note: When editing a document, changes must be based on a document with SUGGESTIONS_INLINE."
+    - name: tabs
+      TYPE: "[]STRUCT(Tab)"
+      REQUIRED: false
+      comment: Tabs that are part of a document. Tabs can contain child tabs, a tab nested within another tab. Child tabs are represented by the Tab.childTabs field.
+    - name: title
+      TYPE: STRING
+      REQUIRED: false
+      comment: The title of the document.
+  DocumentFormat:
+    - name: documentMode
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - DOCUMENT_MODE_UNSPECIFIED
+        - PAGES
+        - PAGELESS
+      comment: Whether the document has pages or is pageless.
+  DocumentStyle:
+    - name: background
+      TYPE: STRUCT(Background)
+      REQUIRED: false
+      comment: The background of the document. Documents cannot have a transparent background color.
+    - name: defaultFooterId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the default footer. If not set, there's no default footer. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: defaultHeaderId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the default header. If not set, there's no default header. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: documentFormat
+      TYPE: STRUCT(DocumentFormat)
+      REQUIRED: false
+      comment: Specifies document-level format settings, such as the document mode (pages vs pageless).
+    - name: evenPageFooterId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the footer used only for even pages. The value of use_even_page_header_footer determines whether to use the default_footer_id or this value for the footer on even pages. If not set, there's no even page footer. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: evenPageHeaderId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the header used only for even pages. The value of use_even_page_header_footer determines whether to use the default_header_id or this value for the header on even pages. If not set, there's no even page header. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: firstPageFooterId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the footer used only for the first page. If not set then a unique footer for the first page does not exist. The value of use_first_page_header_footer determines whether to use the default_footer_id or this value for the footer on the first page. If not set, there's no first page footer. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: firstPageHeaderId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the header used only for the first page. If not set then a unique header for the first page does not exist. The value of use_first_page_header_footer determines whether to use the default_header_id or this value for the header on the first page. If not set, there's no first page header. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: flipPageOrientation
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Optional. Indicates whether to flip the dimensions of the page_size, which allows changing the page orientation between portrait and landscape. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: marginBottom
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The bottom page margin. Updating the bottom page margin on the document style clears the bottom page margin on all section styles. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: marginFooter
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The amount of space between the bottom of the page and the contents of the footer. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: marginHeader
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The amount of space between the top of the page and the contents of the header. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: marginLeft
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The left page margin. Updating the left page margin on the document style clears the left page margin on all section styles. It may also cause columns to resize in all sections. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: marginRight
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The right page margin. Updating the right page margin on the document style clears the right page margin on all section styles. It may also cause columns to resize in all sections. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: marginTop
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The top page margin. Updating the top page margin on the document style clears the top page margin on all section styles. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: pageNumberStart
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The page number from which to start counting the number of pages. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: pageSize
+      TYPE: STRUCT(Size)
+      REQUIRED: false
+      comment: The size of a page in the document. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: useCustomHeaderFooterMargins
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Indicates whether DocumentStyle margin_header, SectionStyle margin_header and DocumentStyle margin_footer, SectionStyle margin_footer are respected. When false, the default values in the Docs editor for header and footer margin is used. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: useEvenPageHeaderFooter
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Indicates whether to use the even page header / footer IDs for the even pages. If DocumentMode is PAGELESS, this property will not be rendered.
+    - name: useFirstPageHeaderFooter
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Indicates whether to use the first page header / footer IDs for the first page. If DocumentMode is PAGELESS, this property will not be rendered.
+  DocumentTab:
+    - name: body
+      TYPE: STRUCT(Body)
+      REQUIRED: false
+      comment: The main body of the document tab.
+    - name: documentStyle
+      TYPE: STRUCT(DocumentStyle)
+      REQUIRED: false
+      comment: The style of the document tab.
+    - name: footers
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The footers in the document tab, keyed by footer ID.
+    - name: footnotes
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The footnotes in the document tab, keyed by footnote ID.
+    - name: headers
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The headers in the document tab, keyed by header ID.
+    - name: inlineObjects
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The inline objects in the document tab, keyed by object ID.
+    - name: lists
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The lists in the document tab, keyed by list ID.
+    - name: namedRanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The named ranges in the document tab, keyed by name.
+    - name: namedStyles
+      TYPE: STRUCT(NamedStyles)
+      REQUIRED: false
+      comment: The named styles of the document tab.
+    - name: positionedObjects
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The positioned objects in the document tab, keyed by object ID.
+    - name: suggestedDocumentStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested changes to the style of the document tab, keyed by suggestion ID.
+    - name: suggestedNamedStylesChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested changes to the named styles of the document tab, keyed by suggestion ID.
+  EndOfSegmentLocation:
+    - name: segmentId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the header, footer or footnote the location is in. An empty segment ID signifies the document's body.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab that the location is in. When omitted, the request is applied to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document."
+  Equation:
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. An Equation may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+  FootnoteReference:
+    - name: footnoteId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the footnote that contains the content of this footnote reference.
+    - name: footnoteNumber
+      TYPE: STRING
+      REQUIRED: false
+      comment: The rendered number of this footnote.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A FootnoteReference may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this FootnoteReference, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this FootnoteReference.
+  HeadingLink:
+    - name: id
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of a heading in this document.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the tab containing this heading.
+  HorizontalRule:
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A HorizontalRule may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this HorizontalRule, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this HorizontalRule. Similar to text content, like text runs and footnote references, the text style of a horizontal rule can affect content layout as well as the styling of text inserted next to it.
+  InlineObjectElement:
+    - name: inlineObjectId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the InlineObject this element contains.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. An InlineObjectElement may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this InlineObject, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this InlineObjectElement. Similar to text content, like text runs and footnote references, the text style of an inline object element can affect content layout as well as the styling of text inserted next to it.
+  InsertDateRequest:
+    - name: dateElementProperties
+      TYPE: STRUCT(DateElementProperties)
+      REQUIRED: false
+      comment: The properties of the date to insert.
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the date at the end of the given header, footer or document body.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the date at a specific index in the document. The date must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between an existing table and its preceding paragraph).
+  InsertInlineImageRequest:
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the text at the end of a header, footer or the document body. Inline images cannot be inserted inside a footnote.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the image at a specific index in the document. The image must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Inline images cannot be inserted inside a footnote or equation.
+    - name: objectSize
+      TYPE: STRUCT(Size)
+      REQUIRED: false
+      comment: "The size that the image should appear as in the document. This property is optional and the final size of the image in the document is determined by the following rules: * If neither width nor height is specified, then a default size of the image is calculated based on its resolution. * If one dimension is specified then the other dimension is calculated to preserve the aspect ratio of the image. * If both width and height are specified, the image is scaled to fit within the provided dimensions while maintaining its aspect ratio."
+    - name: uri
+      TYPE: STRING
+      REQUIRED: false
+      comment: The image URI. The image is fetched once at insertion time and a copy is stored for display inside the document. Images must be less than 50MB in size, cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF format. The provided URI must be publicly accessible and at most 2 kB in length. The URI itself is saved with the image, and exposed via the ImageProperties.content_uri field.
+  InsertInlineImageResponse:
+    - name: objectId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the created InlineObject.
+  InsertInlineSheetsChartResponse:
+    - name: objectId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The object ID of the inserted chart.
+  InsertPageBreakRequest:
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the page break at the end of the document body. Page breaks cannot be inserted inside a footnote, header or footer. Since page breaks can only be inserted inside the body, the segment ID field must be empty.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the page break at a specific index in the document. The page break must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Page breaks cannot be inserted inside a table, equation, footnote, header or footer. Since page breaks can only be inserted inside the body, the segment ID field must be empty.
+  InsertPersonRequest:
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the person mention at the end of a header, footer, footnote or the document body.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the person mention at a specific index in the document. The person mention must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Person mentions cannot be inserted inside an equation.
+    - name: personProperties
+      TYPE: STRUCT(PersonProperties)
+      REQUIRED: false
+      comment: The properties of the person mention to insert.
+  InsertRichLinkRequest:
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the rich link at the end of a header, footer, footnote or the document body.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the rich link at a specific index in the document. The rich link must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). The rich link cannot be inserted inside an equation.
+    - name: richLinkProperties
+      TYPE: STRUCT(RichLinkProperties)
+      REQUIRED: false
+      comment: The properties of the rich link to insert.
+  InsertSectionBreakRequest:
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts a newline and a section break at the end of the document body. Section breaks cannot be inserted inside a footnote, header or footer. Because section breaks can only be inserted inside the body, the segment ID field must be empty.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts a newline and a section break at a specific index in the document. The section break must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). Section breaks cannot be inserted inside a table, equation, footnote, header, or footer. Since section breaks can only be inserted inside the body, the segment ID field must be empty.
+    - name: sectionType
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - SECTION_TYPE_UNSPECIFIED
+        - CONTINUOUS
+        - NEXT_PAGE
+      comment: The type of section to insert.
+  InsertTableColumnRequest:
+    - name: insertRight
+      TYPE: BOOL
+      REQUIRED: false
+      comment: "Whether to insert new column to the right of the reference cell location. - `True`: insert to the right. - `False`: insert to the left."
+    - name: tableCellLocation
+      TYPE: STRUCT(TableCellLocation)
+      REQUIRED: false
+      comment: The reference table cell location from which columns will be inserted. A new column will be inserted to the left (or right) of the column where the reference cell is. If the reference cell is a merged cell, a new column will be inserted to the left (or right) of the merged cell.
+  InsertTableRequest:
+    - name: columns
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The number of columns in the table.
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the table at the end of the given header, footer or document body. A newline character will be inserted before the inserted table. Tables cannot be inserted inside a footnote.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the table at a specific model index. A newline character will be inserted before the inserted table, therefore the table start index will be at the specified location index + 1. The table must be inserted inside the bounds of an existing Paragraph. For instance, it cannot be inserted at a table's start index (i.e. between an existing table and its preceding paragraph). Tables cannot be inserted inside a footnote or equation.
+    - name: rows
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The number of rows in the table.
+  InsertTableRowRequest:
+    - name: insertBelow
+      TYPE: BOOL
+      REQUIRED: false
+      comment: "Whether to insert new row below the reference cell location. - `True`: insert below the cell. - `False`: insert above the cell."
+    - name: tableCellLocation
+      TYPE: STRUCT(TableCellLocation)
+      REQUIRED: false
+      comment: The reference table cell location from which rows will be inserted. A new row will be inserted above (or below) the row where the reference cell is. If the reference cell is a merged cell, a new row will be inserted above (or below) the merged cell.
+  InsertTextRequest:
+    - name: endOfSegmentLocation
+      TYPE: STRUCT(EndOfSegmentLocation)
+      REQUIRED: false
+      comment: Inserts the text at the end of a header, footer, footnote or the document body.
+    - name: location
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: Inserts the text at a specific index in the document. Text must be inserted inside the bounds of an existing Paragraph. For instance, text cannot be inserted at a table's start index (i.e. between the table and its preceding paragraph). The text must be inserted in the preceding paragraph.
+    - name: text
+      TYPE: STRING
+      REQUIRED: false
+      comment: The text to be inserted. Inserting a newline character will implicitly create a new Paragraph at that index. The paragraph style of the new paragraph will be copied from the paragraph at the current insertion index, including lists and bullets. Text styles for inserted text will be determined automatically, generally preserving the styling of neighboring text. In most cases, the text style for the inserted text will match the text immediately before the insertion index. Some control characters (U+0000-U+0008, U+000C-U+001F) and characters from the Unicode Basic Multilingual Plane Private Use Area (U+E000-U+F8FF) will be stripped out of the inserted text.
+  Link:
+    - name: bookmark
+      TYPE: STRUCT(BookmarkLink)
+      REQUIRED: false
+      comment: A bookmark in this document. In documents containing a single tab, links to bookmarks within the singular tab continue to return Link.bookmarkId when the includeTabsContent parameter is set to `false` or unset. Otherwise, this field is returned.
+    - name: bookmarkId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The ID of a bookmark in this document. Legacy field: Instead, set includeTabsContent to `true` and use Link.bookmark for read and write operations. This field is only returned when includeTabsContent is set to `false` in documents containing a single tab and links to a bookmark within the singular tab. Otherwise, Link.bookmark is returned. If this field is used in a write request, the bookmark is considered to be from the tab ID specified in the request. If a tab ID is not specified in the request, it is considered to be from the first tab in the document."
+    - name: heading
+      TYPE: STRUCT(HeadingLink)
+      REQUIRED: false
+      comment: A heading in this document. In documents containing a single tab, links to headings within the singular tab continue to return Link.headingId when the includeTabsContent parameter is set to `false` or unset. Otherwise, this field is returned.
+    - name: headingId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The ID of a heading in this document. Legacy field: Instead, set includeTabsContent to `true` and use Link.heading for read and write operations. This field is only returned when includeTabsContent is set to `false` in documents containing a single tab and links to a heading within the singular tab. Otherwise, Link.heading is returned. If this field is used in a write request, the heading is considered to be from the tab ID specified in the request. If a tab ID is not specified in the request, it is considered to be from the first tab in the document."
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of a tab in this document.
+    - name: url
+      TYPE: STRING
+      REQUIRED: false
+      comment: An external URL.
+  Location:
+    - name: index
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based index, in UTF-16 code units. The index is relative to the beginning of the segment specified by segment_id.
+    - name: segmentId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the header, footer or footnote the location is in. An empty segment ID signifies the document's body.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab that the location is in. When omitted, the request is applied to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document."
+  MergeTableCellsRequest:
+    - name: tableRange
+      TYPE: STRUCT(TableRange)
+      REQUIRED: false
+      comment: The table range specifying which cells of the table to merge. Any text in the cells being merged will be concatenated and stored in the "head" cell of the range. This is the upper-left cell of the range when the content direction is left to right, and the upper-right cell of the range otherwise. If the range is non-rectangular (which can occur in some cases where the range covers cells that are already merged or where the table is non-rectangular), a 400 bad request error is returned.
+  NamedStyle:
+    - name: namedStyleType
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - NAMED_STYLE_TYPE_UNSPECIFIED
+        - NORMAL_TEXT
+        - TITLE
+        - SUBTITLE
+        - HEADING_1
+        - HEADING_2
+        - HEADING_3
+        - HEADING_4
+        - HEADING_5
+        - HEADING_6
+      comment: The type of this named style.
+    - name: paragraphStyle
+      TYPE: STRUCT(ParagraphStyle)
+      REQUIRED: false
+      comment: The paragraph style of this named style.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this named style.
+  NamedStyles:
+    - name: styles
+      TYPE: "[]STRUCT(NamedStyle)"
+      REQUIRED: false
+      comment: The named styles. There's an entry for each of the possible named style types.
+  OptionalColor:
+    - name: color
+      TYPE: STRUCT(Color)
+      REQUIRED: false
+      comment: If set, this will be used as an opaque color. If unset, this represents a transparent color.
+  PageBreak:
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A PageBreak may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this PageBreak, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this PageBreak. Similar to text content, like text runs and footnote references, the text style of a page break can affect content layout as well as the styling of text inserted next to it.
+  Paragraph:
+    - name: bullet
+      TYPE: STRUCT(Bullet)
+      REQUIRED: false
+      comment: The bullet for this paragraph. If not present, the paragraph does not belong to a list.
+    - name: elements
+      TYPE: "[]STRUCT(ParagraphElement)"
+      REQUIRED: false
+      comment: The content of the paragraph, broken down into its component parts.
+    - name: paragraphStyle
+      TYPE: STRUCT(ParagraphStyle)
+      REQUIRED: false
+      comment: The style of this paragraph.
+    - name: positionedObjectIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The IDs of the positioned objects tethered to this paragraph.
+    - name: suggestedBulletChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested changes to this paragraph's bullet.
+    - name: suggestedParagraphStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested paragraph style changes to this paragraph, keyed by suggestion ID.
+    - name: suggestedPositionedObjectIds
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The IDs of the positioned objects suggested to be attached to this paragraph, keyed by suggestion ID.
+  ParagraphBorder:
+    - name: color
+      TYPE: STRUCT(OptionalColor)
+      REQUIRED: false
+      comment: The color of the border.
+    - name: dashStyle
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - DASH_STYLE_UNSPECIFIED
+        - SOLID
+        - DOT
+        - DASH
+      comment: The dash style of the border.
+    - name: padding
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The padding of the border.
+    - name: width
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The width of the border.
+  ParagraphElement:
+    - name: autoText
+      TYPE: STRUCT(AutoText)
+      REQUIRED: false
+      comment: An auto text paragraph element.
+    - name: columnBreak
+      TYPE: STRUCT(ColumnBreak)
+      REQUIRED: false
+      comment: A column break paragraph element.
+    - name: dateElement
+      TYPE: STRUCT(DateElement)
+      REQUIRED: false
+      comment: A paragraph element that represents a date.
+    - name: endIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-base end index of this paragraph element, exclusive, in UTF-16 code units.
+    - name: equation
+      TYPE: STRUCT(Equation)
+      REQUIRED: false
+      comment: An equation paragraph element.
+    - name: footnoteReference
+      TYPE: STRUCT(FootnoteReference)
+      REQUIRED: false
+      comment: A footnote reference paragraph element.
+    - name: horizontalRule
+      TYPE: STRUCT(HorizontalRule)
+      REQUIRED: false
+      comment: A horizontal rule paragraph element.
+    - name: inlineObjectElement
+      TYPE: STRUCT(InlineObjectElement)
+      REQUIRED: false
+      comment: An inline object paragraph element.
+    - name: pageBreak
+      TYPE: STRUCT(PageBreak)
+      REQUIRED: false
+      comment: A page break paragraph element.
+    - name: person
+      TYPE: STRUCT(Person)
+      REQUIRED: false
+      comment: A paragraph element that links to a person or email address.
+    - name: richLink
+      TYPE: STRUCT(RichLink)
+      REQUIRED: false
+      comment: A paragraph element that links to a Google resource (such as a file in Google Drive, a YouTube video, or a Calendar event.)
+    - name: startIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based start index of this paragraph element, in UTF-16 code units.
+    - name: textRun
+      TYPE: STRUCT(TextRun)
+      REQUIRED: false
+      comment: A text run paragraph element.
+  ParagraphStyle:
+    - name: alignment
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - ALIGNMENT_UNSPECIFIED
+        - START
+        - CENTER
+        - END
+        - JUSTIFIED
+      comment: The text alignment for this paragraph.
+    - name: avoidWidowAndOrphan
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether to avoid widows and orphans for the paragraph. If unset, the value is inherited from the parent.
+    - name: borderBetween
+      TYPE: STRUCT(ParagraphBorder)
+      REQUIRED: false
+      comment: The border between this paragraph and the next and previous paragraphs. If unset, the value is inherited from the parent. The between border is rendered when the adjacent paragraph has the same border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
+    - name: borderBottom
+      TYPE: STRUCT(ParagraphBorder)
+      REQUIRED: false
+      comment: The border at the bottom of this paragraph. If unset, the value is inherited from the parent. The bottom border is rendered when the paragraph below has different border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
+    - name: borderLeft
+      TYPE: STRUCT(ParagraphBorder)
+      REQUIRED: false
+      comment: The border to the left of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
+    - name: borderRight
+      TYPE: STRUCT(ParagraphBorder)
+      REQUIRED: false
+      comment: The border to the right of this paragraph. If unset, the value is inherited from the parent. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
+    - name: borderTop
+      TYPE: STRUCT(ParagraphBorder)
+      REQUIRED: false
+      comment: The border at the top of this paragraph. If unset, the value is inherited from the parent. The top border is rendered when the paragraph above has different border and indent properties. Paragraph borders cannot be partially updated. When changing a paragraph border, the new border must be specified in its entirety.
+    - name: direction
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - CONTENT_DIRECTION_UNSPECIFIED
+        - LEFT_TO_RIGHT
+        - RIGHT_TO_LEFT
+      comment: The text direction of this paragraph. If unset, the value defaults to LEFT_TO_RIGHT since paragraph direction is not inherited.
+    - name: headingId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The heading ID of the paragraph. If empty, then this paragraph is not a heading. This property is read-only.
+    - name: indentEnd
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The amount of indentation for the paragraph on the side that corresponds to the end of the text, based on the current paragraph direction. If unset, the value is inherited from the parent.
+    - name: indentFirstLine
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The amount of indentation for the first line of the paragraph. If unset, the value is inherited from the parent.
+    - name: indentStart
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The amount of indentation for the paragraph on the side that corresponds to the start of the text, based on the current paragraph direction. If unset, the value is inherited from the parent.
+    - name: keepLinesTogether
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether all lines of the paragraph should be laid out on the same page or column if possible. If unset, the value is inherited from the parent.
+    - name: keepWithNext
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether at least a part of this paragraph should be laid out on the same page or column as the next paragraph if possible. If unset, the value is inherited from the parent.
+    - name: lineSpacing
+      TYPE: FLOAT
+      REQUIRED: false
+      FORMAT: float
+      comment: The amount of space between lines, as a percentage of normal, where normal is represented as 100.0. If unset, the value is inherited from the parent.
+    - name: namedStyleType
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - NAMED_STYLE_TYPE_UNSPECIFIED
+        - NORMAL_TEXT
+        - TITLE
+        - SUBTITLE
+        - HEADING_1
+        - HEADING_2
+        - HEADING_3
+        - HEADING_4
+        - HEADING_5
+        - HEADING_6
+      comment: The named style type of the paragraph. Since updating the named style type affects other properties within ParagraphStyle, the named style type is applied before the other properties are updated.
+    - name: pageBreakBefore
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether the current paragraph should always start at the beginning of a page. If unset, the value is inherited from the parent. Attempting to update page_break_before for paragraphs in unsupported regions, including Table, Header, Footer and Footnote, can result in an invalid document state that returns a 400 bad request error.
+    - name: shading
+      TYPE: STRUCT(Shading)
+      REQUIRED: false
+      comment: The shading of the paragraph. If unset, the value is inherited from the parent.
+    - name: spaceAbove
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The amount of extra space above the paragraph. If unset, the value is inherited from the parent.
+    - name: spaceBelow
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The amount of extra space below the paragraph. If unset, the value is inherited from the parent.
+    - name: spacingMode
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - SPACING_MODE_UNSPECIFIED
+        - NEVER_COLLAPSE
+        - COLLAPSE_LISTS
+      comment: The spacing mode for the paragraph.
+    - name: tabStops
+      TYPE: "[]STRUCT(TabStop)"
+      REQUIRED: false
+      comment: A list of the tab stops for this paragraph. The list of tab stops is not inherited. This property is read-only.
+  Person:
+    - name: personId
+      TYPE: STRING
+      REQUIRED: false
+      READ_ONLY: true
+      comment: Output only. The unique ID of this link.
+    - name: personProperties
+      TYPE: STRUCT(PersonProperties)
+      REQUIRED: false
+      READ_ONLY: true
+      comment: Output only. The properties of this Person. This field is always present.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: IDs for suggestions that remove this person link from the document. A Person might have multiple deletion IDs if, for example, multiple users suggest deleting it. If empty, then this person link isn't suggested for deletion.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: IDs for suggestions that insert this person link into the document. A Person might have multiple insertion IDs if it's a nested suggested change (a suggestion within a suggestion made by a different user, for example). If empty, then this person link isn't a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this Person, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this Person.
+  PersonProperties:
+    - name: email
+      TYPE: STRING
+      REQUIRED: false
+      comment: The email address linked to this Person. This field is always present.
+    - name: name
+      TYPE: STRING
+      REQUIRED: false
+      comment: The name of the person if it's displayed in the link text instead of the person's email address.
+  PinTableHeaderRowsRequest:
+    - name: pinnedHeaderRowsCount
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The number of table rows to pin, where 0 implies that all rows are unpinned.
+    - name: tableStartLocation
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: The location where the table starts in the document.
+  Range:
+    - name: endIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based end index of this range, exclusive, in UTF-16 code units. In all current uses, an end index must be provided. This field is an Int32Value in order to accommodate future use cases with open-ended ranges.
+    - name: segmentId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the header, footer, or footnote that this range is contained in. An empty segment ID signifies the document's body.
+    - name: startIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based start index of this range, in UTF-16 code units. In all current uses, a start index must be provided. This field is an Int32Value in order to accommodate future use cases with open-ended ranges.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab that contains this range. When omitted, the request applies to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document."
+  ReplaceAllTextRequest:
+    - name: containsText
+      TYPE: STRUCT(SubstringMatchCriteria)
+      REQUIRED: false
+      comment: Finds text in the document matching this substring.
+    - name: replaceText
+      TYPE: STRING
+      REQUIRED: false
+      comment: The text that will replace the matched text.
+    - name: tabsCriteria
+      TYPE: STRUCT(TabsCriteria)
+      REQUIRED: false
+      comment: "Optional. The criteria used to specify in which tabs the replacement occurs. When omitted, the replacement applies to all tabs. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the replacement applies to the singular tab. In a document containing multiple tabs: - If provided, the replacement applies to the specified tabs. - If omitted, the replacement applies to all tabs."
+  ReplaceAllTextResponse:
+    - name: occurrencesChanged
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The number of occurrences changed by replacing all text.
+  ReplaceImageRequest:
+    - name: imageObjectId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the existing image that will be replaced. The ID can be retrieved from the response of a get request.
+    - name: imageReplaceMethod
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - IMAGE_REPLACE_METHOD_UNSPECIFIED
+        - CENTER_CROP
+      comment: The replacement method.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab that the image to be replaced is in. When omitted, the request is applied to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If omitted, the request applies to the first tab in the document."
+    - name: uri
+      TYPE: STRING
+      REQUIRED: false
+      comment: The URI of the new image. The image is fetched once at insertion time and a copy is stored for display inside the document. Images must be less than 50MB, cannot exceed 25 megapixels, and must be in PNG, JPEG, or GIF format. The provided URI can't surpass 2 KB in length. The URI is saved with the image, and exposed through the ImageProperties.source_uri field.
+  ReplaceNamedRangeContentRequest:
+    - name: namedRangeId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the named range whose content will be replaced. If there is no named range with the given ID a 400 bad request error is returned.
+    - name: namedRangeName
+      TYPE: STRING
+      REQUIRED: false
+      comment: The name of the NamedRanges whose content will be replaced. If there are multiple named ranges with the given name, then the content of each one will be replaced. If there are no named ranges with the given name, then the request will be a no-op.
+    - name: tabsCriteria
+      TYPE: STRUCT(TabsCriteria)
+      REQUIRED: false
+      comment: "Optional. The criteria used to specify in which tabs the replacement occurs. When omitted, the replacement applies to all tabs. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the replacement applies to the singular tab. In a document containing multiple tabs: - If provided, the replacement applies to the specified tabs. - If omitted, the replacement applies to all tabs."
+    - name: text
+      TYPE: STRING
+      REQUIRED: false
+      comment: Replaces the content of the specified named range(s) with the given text.
+  Request:
+    - name: addDocumentTab
+      TYPE: STRUCT(AddDocumentTabRequest)
+      REQUIRED: false
+      comment: Adds a document tab.
+    - name: createFooter
+      TYPE: STRUCT(CreateFooterRequest)
+      REQUIRED: false
+      comment: Creates a footer.
+    - name: createFootnote
+      TYPE: STRUCT(CreateFootnoteRequest)
+      REQUIRED: false
+      comment: Creates a footnote.
+    - name: createHeader
+      TYPE: STRUCT(CreateHeaderRequest)
+      REQUIRED: false
+      comment: Creates a header.
+    - name: createNamedRange
+      TYPE: STRUCT(CreateNamedRangeRequest)
+      REQUIRED: false
+      comment: Creates a named range.
+    - name: createParagraphBullets
+      TYPE: STRUCT(CreateParagraphBulletsRequest)
+      REQUIRED: false
+      comment: Creates bullets for paragraphs.
+    - name: deleteContentRange
+      TYPE: STRUCT(DeleteContentRangeRequest)
+      REQUIRED: false
+      comment: Deletes content from the document.
+    - name: deleteFooter
+      TYPE: STRUCT(DeleteFooterRequest)
+      REQUIRED: false
+      comment: Deletes a footer from the document.
+    - name: deleteHeader
+      TYPE: STRUCT(DeleteHeaderRequest)
+      REQUIRED: false
+      comment: Deletes a header from the document.
+    - name: deleteNamedRange
+      TYPE: STRUCT(DeleteNamedRangeRequest)
+      REQUIRED: false
+      comment: Deletes a named range.
+    - name: deleteParagraphBullets
+      TYPE: STRUCT(DeleteParagraphBulletsRequest)
+      REQUIRED: false
+      comment: Deletes bullets from paragraphs.
+    - name: deletePositionedObject
+      TYPE: STRUCT(DeletePositionedObjectRequest)
+      REQUIRED: false
+      comment: Deletes a positioned object from the document.
+    - name: deleteTab
+      TYPE: STRUCT(DeleteTabRequest)
+      REQUIRED: false
+      comment: Deletes a document tab.
+    - name: deleteTableColumn
+      TYPE: STRUCT(DeleteTableColumnRequest)
+      REQUIRED: false
+      comment: Deletes a column from a table.
+    - name: deleteTableRow
+      TYPE: STRUCT(DeleteTableRowRequest)
+      REQUIRED: false
+      comment: Deletes a row from a table.
+    - name: insertDate
+      TYPE: STRUCT(InsertDateRequest)
+      REQUIRED: false
+      comment: Inserts a date.
+    - name: insertInlineImage
+      TYPE: STRUCT(InsertInlineImageRequest)
+      REQUIRED: false
+      comment: Inserts an inline image at the specified location.
+    - name: insertPageBreak
+      TYPE: STRUCT(InsertPageBreakRequest)
+      REQUIRED: false
+      comment: Inserts a page break at the specified location.
+    - name: insertPerson
+      TYPE: STRUCT(InsertPersonRequest)
+      REQUIRED: false
+      comment: Inserts a person mention.
+    - name: insertRichLink
+      TYPE: STRUCT(InsertRichLinkRequest)
+      REQUIRED: false
+      comment: Insert a rich link.
+    - name: insertSectionBreak
+      TYPE: STRUCT(InsertSectionBreakRequest)
+      REQUIRED: false
+      comment: Inserts a section break at the specified location.
+    - name: insertTable
+      TYPE: STRUCT(InsertTableRequest)
+      REQUIRED: false
+      comment: Inserts a table at the specified location.
+    - name: insertTableColumn
+      TYPE: STRUCT(InsertTableColumnRequest)
+      REQUIRED: false
+      comment: Inserts an empty column into a table.
+    - name: insertTableRow
+      TYPE: STRUCT(InsertTableRowRequest)
+      REQUIRED: false
+      comment: Inserts an empty row into a table.
+    - name: insertText
+      TYPE: STRUCT(InsertTextRequest)
+      REQUIRED: false
+      comment: Inserts text at the specified location.
+    - name: mergeTableCells
+      TYPE: STRUCT(MergeTableCellsRequest)
+      REQUIRED: false
+      comment: Merges cells in a table.
+    - name: pinTableHeaderRows
+      TYPE: STRUCT(PinTableHeaderRowsRequest)
+      REQUIRED: false
+      comment: Updates the number of pinned header rows in a table.
+    - name: replaceAllText
+      TYPE: STRUCT(ReplaceAllTextRequest)
+      REQUIRED: false
+      comment: Replaces all instances of the specified text.
+    - name: replaceImage
+      TYPE: STRUCT(ReplaceImageRequest)
+      REQUIRED: false
+      comment: Replaces an image in the document.
+    - name: replaceNamedRangeContent
+      TYPE: STRUCT(ReplaceNamedRangeContentRequest)
+      REQUIRED: false
+      comment: Replaces the content in a named range.
+    - name: unmergeTableCells
+      TYPE: STRUCT(UnmergeTableCellsRequest)
+      REQUIRED: false
+      comment: Unmerges cells in a table.
+    - name: updateDocumentStyle
+      TYPE: STRUCT(UpdateDocumentStyleRequest)
+      REQUIRED: false
+      comment: Updates the style of the document.
+    - name: updateDocumentTabProperties
+      TYPE: STRUCT(UpdateDocumentTabPropertiesRequest)
+      REQUIRED: false
+      comment: Updates the properties of a document tab.
+    - name: updateNamedStyle
+      TYPE: STRUCT(UpdateNamedStyleRequest)
+      REQUIRED: false
+      comment: Updates a named style.
+    - name: updateParagraphStyle
+      TYPE: STRUCT(UpdateParagraphStyleRequest)
+      REQUIRED: false
+      comment: Updates the paragraph style at the specified range.
+    - name: updateSectionStyle
+      TYPE: STRUCT(UpdateSectionStyleRequest)
+      REQUIRED: false
+      comment: Updates the section style of the specified range.
+    - name: updateTableCellStyle
+      TYPE: STRUCT(UpdateTableCellStyleRequest)
+      REQUIRED: false
+      comment: Updates the style of table cells.
+    - name: updateTableColumnProperties
+      TYPE: STRUCT(UpdateTableColumnPropertiesRequest)
+      REQUIRED: false
+      comment: Updates the properties of columns in a table.
+    - name: updateTableRowStyle
+      TYPE: STRUCT(UpdateTableRowStyleRequest)
+      REQUIRED: false
+      comment: Updates the row style in a table.
+    - name: updateTextStyle
+      TYPE: STRUCT(UpdateTextStyleRequest)
+      REQUIRED: false
+      comment: Updates the text style at the specified range.
+  Response:
+    - name: addDocumentTab
+      TYPE: STRUCT(AddDocumentTabResponse)
+      REQUIRED: false
+      comment: The result of adding a document tab.
+    - name: createFooter
+      TYPE: STRUCT(CreateFooterResponse)
+      REQUIRED: false
+      comment: The result of creating a footer.
+    - name: createFootnote
+      TYPE: STRUCT(CreateFootnoteResponse)
+      REQUIRED: false
+      comment: The result of creating a footnote.
+    - name: createHeader
+      TYPE: STRUCT(CreateHeaderResponse)
+      REQUIRED: false
+      comment: The result of creating a header.
+    - name: createNamedRange
+      TYPE: STRUCT(CreateNamedRangeResponse)
+      REQUIRED: false
+      comment: The result of creating a named range.
+    - name: insertInlineImage
+      TYPE: STRUCT(InsertInlineImageResponse)
+      REQUIRED: false
+      comment: The result of inserting an inline image.
+    - name: insertInlineSheetsChart
+      TYPE: STRUCT(InsertInlineSheetsChartResponse)
+      REQUIRED: false
+      comment: The result of inserting an inline Google Sheets chart.
+    - name: replaceAllText
+      TYPE: STRUCT(ReplaceAllTextResponse)
+      REQUIRED: false
+      comment: The result of replacing text.
+  RgbColor:
+    - name: blue
+      TYPE: FLOAT
+      REQUIRED: false
+      FORMAT: float
+      comment: The blue component of the color, from 0.0 to 1.0.
+    - name: green
+      TYPE: FLOAT
+      REQUIRED: false
+      FORMAT: float
+      comment: The green component of the color, from 0.0 to 1.0.
+    - name: red
+      TYPE: FLOAT
+      REQUIRED: false
+      FORMAT: float
+      comment: The red component of the color, from 0.0 to 1.0.
+  RichLink:
+    - name: richLinkId
+      TYPE: STRING
+      REQUIRED: false
+      READ_ONLY: true
+      comment: Output only. The ID of this link.
+    - name: richLinkProperties
+      TYPE: STRUCT(RichLinkProperties)
+      REQUIRED: false
+      READ_ONLY: true
+      comment: Output only. The properties of this RichLink. This field is always present.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: IDs for suggestions that remove this link from the document. A RichLink might have multiple deletion IDs if, for example, multiple users suggest deleting it. If empty, then this person link isn't suggested for deletion.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: IDs for suggestions that insert this link into the document. A RichLink might have multiple insertion IDs if it's a nested suggested change (a suggestion within a suggestion made by a different user, for example). If empty, then this person link isn't a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this RichLink, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this RichLink.
+  RichLinkProperties:
+    - name: mimeType
+      TYPE: STRING
+      REQUIRED: false
+      comment: The [MIME type](https://developers.google.com/drive/api/v3/mime-types) of the RichLink, if there's one (for example, when it's a file in Drive).
+    - name: title
+      TYPE: STRING
+      REQUIRED: false
+      comment: The title of the RichLink as displayed in the link. This title matches the title of the linked resource at the time of the insertion or last update of the link. This field is always present.
+    - name: uri
+      TYPE: STRING
+      REQUIRED: false
+      comment: The URI to the RichLink. This is always present.
+  SectionBreak:
+    - name: sectionStyle
+      TYPE: STRUCT(SectionStyle)
+      REQUIRED: false
+      comment: The style of the section after this section break.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A SectionBreak may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+  SectionColumnProperties:
+    - name: paddingEnd
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The padding at the end of the column.
+    - name: width
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: Output only. The width of the column.
+  SectionStyle:
+    - name: columnProperties
+      TYPE: "[]STRUCT(SectionColumnProperties)"
+      REQUIRED: false
+      comment: The section's columns properties. If empty, the section contains one column with the default properties in the Docs editor. A section can be updated to have no more than 3 columns. When updating this property, setting a concrete value is required. Unsetting this property will result in a 400 bad request error.
+    - name: columnSeparatorStyle
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - COLUMN_SEPARATOR_STYLE_UNSPECIFIED
+        - NONE
+        - BETWEEN_EACH_COLUMN
+      comment: The style of column separators. This style can be set even when there's one column in the section. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: contentDirection
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - CONTENT_DIRECTION_UNSPECIFIED
+        - LEFT_TO_RIGHT
+        - RIGHT_TO_LEFT
+      comment: The content direction of this section. If unset, the value defaults to LEFT_TO_RIGHT. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: defaultFooterId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the default footer. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_footer_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: defaultHeaderId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the default header. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's default_header_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: evenPageFooterId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the footer used only for even pages. If the value of DocumentStyle's use_even_page_header_footer is true, this value is used for the footers on even pages in the section. If it is false, the footers on even pages use the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's even_page_footer_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: evenPageHeaderId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the header used only for even pages. If the value of DocumentStyle's use_even_page_header_footer is true, this value is used for the headers on even pages in the section. If it is false, the headers on even pages use the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's even_page_header_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: firstPageFooterId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the footer used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the footer on the first page of the section. If it's false, the footer on the first page of the section uses the default_footer_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's first_page_footer_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: firstPageHeaderId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The ID of the header used only for the first page of the section. If use_first_page_header_footer is true, this value is used for the header on the first page of the section. If it's false, the header on the first page of the section uses the default_header_id. If unset, the value inherits from the previous SectionBreak's SectionStyle. If the value is unset in the first SectionBreak, it inherits from DocumentStyle's first_page_header_id. If DocumentMode is PAGELESS, this property will not be rendered. This property is read-only.
+    - name: flipPageOrientation
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Optional. Indicates whether to flip the dimensions of DocumentStyle's page_size for this section, which allows changing the page orientation between portrait and landscape. If unset, the value inherits from DocumentStyle's flip_page_orientation. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: marginBottom
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The bottom page margin of the section. If unset, the value defaults to margin_bottom from DocumentStyle. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: marginFooter
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The footer margin of the section. If unset, the value defaults to margin_footer from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The value of use_custom_header_footer_margins on DocumentStyle indicates if a footer margin is being respected for this section If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: marginHeader
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The header margin of the section. If unset, the value defaults to margin_header from DocumentStyle. If updated, use_custom_header_footer_margins is set to true on DocumentStyle. The value of use_custom_header_footer_margins on DocumentStyle indicates if a header margin is being respected for this section. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: marginLeft
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The left page margin of the section. If unset, the value defaults to margin_left from DocumentStyle. Updating the left margin causes columns in this section to resize. Since the margin affects column width, it's applied before column properties. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: marginRight
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The right page margin of the section. If unset, the value defaults to margin_right from DocumentStyle. Updating the right margin causes columns in this section to resize. Since the margin affects column width, it's applied before column properties. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: marginTop
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The top page margin of the section. If unset, the value defaults to margin_top from DocumentStyle. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: pageNumberStart
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The page number from which to start counting the number of pages for this section. If unset, page numbering continues from the previous section. If the value is unset in the first SectionBreak, refer to DocumentStyle's page_number_start. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+    - name: sectionType
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - SECTION_TYPE_UNSPECIFIED
+        - CONTINUOUS
+        - NEXT_PAGE
+      comment: Output only. The type of section.
+    - name: useFirstPageHeaderFooter
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Indicates whether to use the first page header / footer IDs for the first page of the section. If unset, it inherits from DocumentStyle's use_first_page_header_footer for the first section. If the value is unset for subsequent sectors, it should be interpreted as false. If DocumentMode is PAGELESS, this property will not be rendered. When updating this property, setting a concrete value is required. Unsetting this property results in a 400 bad request error.
+  Shading:
+    - name: backgroundColor
+      TYPE: STRUCT(OptionalColor)
+      REQUIRED: false
+      comment: The background color of this paragraph shading.
+  Size:
+    - name: height
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The height of the object.
+    - name: width
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The width of the object.
+  StructuralElement:
+    - name: endIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based end index of this structural element, exclusive, in UTF-16 code units.
+    - name: paragraph
+      TYPE: STRUCT(Paragraph)
+      REQUIRED: false
+      comment: A paragraph type of structural element.
+    - name: sectionBreak
+      TYPE: STRUCT(SectionBreak)
+      REQUIRED: false
+      comment: A section break type of structural element.
+    - name: startIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based start index of this structural element, in UTF-16 code units.
+    - name: table
+      TYPE: STRUCT(Table)
+      REQUIRED: false
+      comment: A table type of structural element.
+    - name: tableOfContents
+      TYPE: STRUCT(TableOfContents)
+      REQUIRED: false
+      comment: A table of contents type of structural element.
+  SubstringMatchCriteria:
+    - name: matchCase
+      TYPE: BOOL
+      REQUIRED: false
+      comment: "Indicates whether the search should respect case: - `True`: the search is case sensitive. - `False`: the search is case insensitive."
+    - name: searchByRegex
+      TYPE: BOOL
+      REQUIRED: false
+      comment: "Optional. True if the find value should be treated as a regular expression. Any backslashes in the pattern should be escaped. - `True`: the search text is treated as a regular expressions. - `False`: the search text is treated as a substring for matching."
+    - name: text
+      TYPE: STRING
+      REQUIRED: false
+      comment: The text to search for in the document.
+  Tab:
+    - name: childTabs
+      TYPE: "[]STRUCT(Tab)"
+      REQUIRED: false
+      comment: The child tabs nested within this tab.
+    - name: documentTab
+      TYPE: STRUCT(DocumentTab)
+      REQUIRED: false
+      comment: A tab with document contents, like text and images.
+    - name: tabProperties
+      TYPE: STRUCT(TabProperties)
+      REQUIRED: false
+      comment: The properties of the tab, like ID and title.
+  TabProperties:
+    - name: iconEmoji
+      TYPE: STRING
+      REQUIRED: false
+      comment: Optional. The emoji icon displayed with the tab. A valid emoji icon is represented by a non-empty Unicode string. Any set of characters that don't represent a single emoji is invalid. If an emoji is invalid, a 400 bad request error is returned. If this value is unset or empty, the tab will display the default tab icon.
+    - name: index
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based index of the tab within the parent.
+    - name: nestingLevel
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: Output only. The depth of the tab within the document. Root-level tabs start at 0.
+    - name: parentTabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: Optional. The ID of the parent tab. Empty when the current tab is a root-level tab, which means it doesn't have any parents.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The immutable ID of the tab.
+    - name: title
+      TYPE: STRING
+      REQUIRED: false
+      comment: The user-visible name of the tab.
+  TabStop:
+    - name: alignment
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - TAB_STOP_ALIGNMENT_UNSPECIFIED
+        - START
+        - CENTER
+        - END
+      comment: The alignment of this tab stop. If unset, the value defaults to START.
+    - name: offset
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The offset between this tab stop and the start margin.
+  Table:
+    - name: columns
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: Number of columns in the table. It's possible for a table to be non-rectangular, so some rows may have a different number of cells.
+    - name: rows
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: Number of rows in the table.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A Table may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: tableRows
+      TYPE: "[]STRUCT(TableRow)"
+      REQUIRED: false
+      comment: The contents and style of each row.
+    - name: tableStyle
+      TYPE: STRUCT(TableStyle)
+      REQUIRED: false
+      comment: The style of the table.
+  TableCell:
+    - name: content
+      TYPE: "[]STRUCT(StructuralElement)"
+      REQUIRED: false
+      comment: The content of the cell.
+    - name: endIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based end index of this cell, exclusive, in UTF-16 code units.
+    - name: startIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based start index of this cell, in UTF-16 code units.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A TableCell may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTableCellStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested changes to the table cell style, keyed by suggestion ID.
+    - name: tableCellStyle
+      TYPE: STRUCT(TableCellStyle)
+      REQUIRED: false
+      comment: The style of the cell.
+  TableCellBorder:
+    - name: color
+      TYPE: STRUCT(OptionalColor)
+      REQUIRED: false
+      comment: The color of the border. This color cannot be transparent.
+    - name: dashStyle
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - DASH_STYLE_UNSPECIFIED
+        - SOLID
+        - DOT
+        - DASH
+      comment: The dash style of the border.
+    - name: width
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The width of the border.
+  TableCellLocation:
+    - name: columnIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based column index. For example, the second column in the table has a column index of 1.
+    - name: rowIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based row index. For example, the second row in the table has a row index of 1.
+    - name: tableStartLocation
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: The location where the table starts in the document.
+  TableCellStyle:
+    - name: backgroundColor
+      TYPE: STRUCT(OptionalColor)
+      REQUIRED: false
+      comment: The background color of the cell.
+    - name: borderBottom
+      TYPE: STRUCT(TableCellBorder)
+      REQUIRED: false
+      comment: The bottom border of the cell.
+    - name: borderLeft
+      TYPE: STRUCT(TableCellBorder)
+      REQUIRED: false
+      comment: The left border of the cell.
+    - name: borderRight
+      TYPE: STRUCT(TableCellBorder)
+      REQUIRED: false
+      comment: The right border of the cell.
+    - name: borderTop
+      TYPE: STRUCT(TableCellBorder)
+      REQUIRED: false
+      comment: The top border of the cell.
+    - name: columnSpan
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The column span of the cell. This property is read-only.
+    - name: contentAlignment
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - CONTENT_ALIGNMENT_UNSPECIFIED
+        - CONTENT_ALIGNMENT_UNSUPPORTED
+        - TOP
+        - MIDDLE
+        - BOTTOM
+      comment: The alignment of the content in the table cell. The default alignment matches the alignment for newly created table cells in the Docs editor.
+    - name: paddingBottom
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The bottom padding of the cell.
+    - name: paddingLeft
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The left padding of the cell.
+    - name: paddingRight
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The right padding of the cell.
+    - name: paddingTop
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The top padding of the cell.
+    - name: rowSpan
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The row span of the cell. This property is read-only.
+  TableColumnProperties:
+    - name: width
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The width of the column. Set when the column's `width_type` is FIXED_WIDTH.
+    - name: widthType
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - WIDTH_TYPE_UNSPECIFIED
+        - EVENLY_DISTRIBUTED
+        - FIXED_WIDTH
+      comment: The width type of the column.
+  TableOfContents:
+    - name: content
+      TYPE: "[]STRUCT(StructuralElement)"
+      REQUIRED: false
+      comment: The content of the table of contents.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A TableOfContents may have multiple insertion IDs if it is a nested suggested change. If empty, then this is not a suggested insertion.
+  TableRange:
+    - name: columnSpan
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The column span of the table range.
+    - name: rowSpan
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The row span of the table range.
+    - name: tableCellLocation
+      TYPE: STRUCT(TableCellLocation)
+      REQUIRED: false
+      comment: The cell location where the table range starts.
+  TableRow:
+    - name: endIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based end index of this row, exclusive, in UTF-16 code units.
+    - name: startIndex
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: The zero-based start index of this row, in UTF-16 code units.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A TableRow may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTableRowStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested style changes to this row, keyed by suggestion ID.
+    - name: tableCells
+      TYPE: "[]STRUCT(TableCell)"
+      REQUIRED: false
+      comment: The contents and style of each cell in this row. It's possible for a table to be non-rectangular, so some rows may have a different number of cells than other rows in the same table.
+    - name: tableRowStyle
+      TYPE: STRUCT(TableRowStyle)
+      REQUIRED: false
+      comment: The style of the table row.
+  TableRowStyle:
+    - name: minRowHeight
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The minimum height of the row. The row will be rendered in the Docs editor at a height equal to or greater than this value in order to show all the content in the row's cells.
+    - name: preventOverflow
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether the row cannot overflow across page or column boundaries.
+    - name: tableHeader
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether the row is a table header.
+  TableStyle:
+    - name: tableColumnProperties
+      TYPE: "[]STRUCT(TableColumnProperties)"
+      REQUIRED: false
+      comment: The properties of each column. Note that in Docs, tables contain rows and rows contain cells, similar to HTML. So the properties for a row can be found on the row's table_row_style.
+  TabsCriteria:
+    - name: tabIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The list of tab IDs in which the request executes.
+  TextRun:
+    - name: content
+      TYPE: STRING
+      REQUIRED: false
+      comment: The text of this run. Any non-text elements in the run are replaced with the Unicode character U+E907.
+    - name: suggestedDeletionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested deletion IDs. If empty, then there are no suggested deletions of this content.
+    - name: suggestedInsertionIds
+      TYPE: "[]STRING"
+      REQUIRED: false
+      comment: The suggested insertion IDs. A TextRun may have multiple insertion IDs if it's a nested suggested change. If empty, then this is not a suggested insertion.
+    - name: suggestedTextStyleChanges
+      TYPE: map[STRING]ANY
+      REQUIRED: false
+      comment: The suggested text style changes to this run, keyed by suggestion ID.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The text style of this run.
+  TextStyle:
+    - name: backgroundColor
+      TYPE: STRUCT(OptionalColor)
+      REQUIRED: false
+      comment: The background color of the text. If set, the color is either an RGB color or transparent, depending on the `color` field.
+    - name: baselineOffset
+      TYPE: STRING
+      REQUIRED: false
+      ENUM:
+        - BASELINE_OFFSET_UNSPECIFIED
+        - NONE
+        - SUPERSCRIPT
+        - SUBSCRIPT
+      comment: The text's vertical offset from its normal position. Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font size, computed based on the `font_size` field. Changes in this field don't affect the `font_size`.
+    - name: bold
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether or not the text is rendered as bold.
+    - name: fontSize
+      TYPE: STRUCT(Dimension)
+      REQUIRED: false
+      comment: The size of the text's font.
+    - name: foregroundColor
+      TYPE: STRUCT(OptionalColor)
+      REQUIRED: false
+      comment: The foreground color of the text. If set, the color is either an RGB color or transparent, depending on the `color` field.
+    - name: italic
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether or not the text is italicized.
+    - name: link
+      TYPE: STRUCT(Link)
+      REQUIRED: false
+      comment: "The hyperlink destination of the text. If unset, there's no link. Links are not inherited from parent text. Changing the link in an update request causes some other changes to the text style of the range: * When setting a link, the text foreground color will be updated to the default link color and the text will be underlined. If these fields are modified in the same request, those values will be used instead of the link defaults. * Setting a link on a text range that overlaps with an existing link will also update the existing link to point to the new URL. * Links are not settable on newline characters. As a result, setting a link on a text range that crosses a paragraph boundary, such as `\"ABC\\n123\"`, will separate the newline character(s) into their own text runs. The link will be applied separately to the runs before and after the newline. * Removing a link will update the text style of the range to match the style of the preceding text (or the default text styles if the preceding text is another link) unless different styles are being set in the same request."
+    - name: smallCaps
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether or not the text is in small capital letters.
+    - name: strikethrough
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether or not the text is struck through.
+    - name: underline
+      TYPE: BOOL
+      REQUIRED: false
+      comment: Whether or not the text is underlined.
+    - name: weightedFontFamily
+      TYPE: STRUCT(WeightedFontFamily)
+      REQUIRED: false
+      comment: The font family and rendered weight of the text. If an update request specifies values for both `weighted_font_family` and `bold`, the `weighted_font_family` is applied first, then `bold`. If `weighted_font_family#weight` is not set, it defaults to `400`. If `weighted_font_family` is set, then `weighted_font_family#font_family` must also be set with a non-empty value. Otherwise, a 400 bad request error is returned.
+  UnmergeTableCellsRequest:
+    - name: tableRange
+      TYPE: STRUCT(TableRange)
+      REQUIRED: false
+      comment: The table range specifying which cells of the table to unmerge. All merged cells in this range will be unmerged, and cells that are already unmerged will not be affected. If the range has no merged cells, the request will do nothing. If there is text in any of the merged cells, the text will remain in the "head" cell of the resulting block of unmerged cells. The "head" cell is the upper-left cell when the content direction is from left to right, and the upper-right otherwise.
+  UpdateDocumentStyleRequest:
+    - name: documentStyle
+      TYPE: STRUCT(DocumentStyle)
+      REQUIRED: false
+      comment: The styles to set on the document. Certain document style changes may cause other changes in order to mirror the behavior of the Docs editor. See the documentation of DocumentStyle for more information.
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `document_style` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example to update the background, set `fields` to `"background"`.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: "The tab that contains the style to update. When omitted, the request applies to the first tab. In a document containing a single tab: - If provided, must match the singular tab's ID. - If omitted, the request applies to the singular tab. In a document containing multiple tabs: - If provided, the request applies to the specified tab. - If not provided, the request applies to the first tab in the document."
+  UpdateDocumentTabPropertiesRequest:
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `tab_properties` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field.
+    - name: tabProperties
+      TYPE: STRUCT(TabProperties)
+      REQUIRED: false
+      comment: The tab properties to update.
+  UpdateNamedStyleRequest:
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The NamedStyle fields that should be updated. At least `named_style_type` must be specified. The root `named_style` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example, to update the text style to bold, set `fields` to include `"text_style"` and `"text_style.bold"`. To update the paragraph style's alignment property, set `fields` to include `"paragraph_style"` and `"paragraph_style.alignment"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset. Specifying `"text_style"` or `"paragraph_style"` with an empty TextStyle or ParagraphStyle will reset all of its nested fields.
+    - name: namedStyle
+      TYPE: STRUCT(NamedStyle)
+      REQUIRED: false
+      comment: The document style to update.
+    - name: tabId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The document tab to update. By default, the update is applied to the first tab.
+  UpdateParagraphStyleRequest:
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `paragraph_style` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example, to update the paragraph style's alignment property, set `fields` to `"alignment"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset.
+    - name: paragraphStyle
+      TYPE: STRUCT(ParagraphStyle)
+      REQUIRED: false
+      comment: The styles to set on the paragraphs. Certain paragraph style changes may cause other changes in order to mirror the behavior of the Docs editor. See the documentation of ParagraphStyle for more information.
+    - name: range
+      TYPE: STRUCT(Range)
+      REQUIRED: false
+      comment: The range overlapping the paragraphs to style.
+  UpdateSectionStyleRequest:
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `section_style` is implied and must not be specified. A single `"*"` can be used as short-hand for listing every field. For example to update the left margin, set `fields` to `"margin_left"`.
+    - name: range
+      TYPE: STRUCT(Range)
+      REQUIRED: false
+      comment: The range overlapping the sections to style. Because section breaks can only be inserted inside the body, the segment ID field must be empty.
+    - name: sectionStyle
+      TYPE: STRUCT(SectionStyle)
+      REQUIRED: false
+      comment: The styles to be set on the section. Certain section style changes may cause other changes in order to mirror the behavior of the Docs editor. See the documentation of SectionStyle for more information.
+  UpdateTableCellStyleRequest:
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `tableCellStyle` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example to update the table cell background color, set `fields` to `"backgroundColor"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset.
+    - name: tableCellStyle
+      TYPE: STRUCT(TableCellStyle)
+      REQUIRED: false
+      comment: "The style to set on the table cells. When updating borders, if a cell shares a border with an adjacent cell, the corresponding border property of the adjacent cell is updated as well. Borders that are merged and invisible are not updated. Since updating a border shared by adjacent cells in the same request can cause conflicting border updates, border updates are applied in the following order: - `border_right` - `border_left` - `border_bottom` - `border_top`"
+    - name: tableRange
+      TYPE: STRUCT(TableRange)
+      REQUIRED: false
+      comment: The table range representing the subset of the table to which the updates are applied.
+    - name: tableStartLocation
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: The location where the table starts in the document. When specified, the updates are applied to all the cells in the table.
+  UpdateTableColumnPropertiesRequest:
+    - name: columnIndices
+      TYPE: "[]INT"
+      REQUIRED: false
+      comment: The list of zero-based column indices whose property should be updated. If no indices are specified, all columns will be updated.
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `tableColumnProperties` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example to update the column width, set `fields` to `"width"`.
+    - name: tableColumnProperties
+      TYPE: STRUCT(TableColumnProperties)
+      REQUIRED: false
+      comment: The table column properties to update. If the value of `table_column_properties#width` is less than 5 points (5/72 inch), a 400 bad request error is returned.
+    - name: tableStartLocation
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: The location where the table starts in the document.
+  UpdateTableRowStyleRequest:
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `tableRowStyle` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example to update the minimum row height, set `fields` to `"min_row_height"`.
+    - name: rowIndices
+      TYPE: "[]INT"
+      REQUIRED: false
+      comment: The list of zero-based row indices whose style should be updated. If no indices are specified, all rows will be updated.
+    - name: tableRowStyle
+      TYPE: STRUCT(TableRowStyle)
+      REQUIRED: false
+      comment: The styles to be set on the rows.
+    - name: tableStartLocation
+      TYPE: STRUCT(Location)
+      REQUIRED: false
+      comment: The location where the table starts in the document.
+  UpdateTextStyleRequest:
+    - name: fields
+      TYPE: STRING
+      REQUIRED: false
+      FORMAT: google-fieldmask
+      comment: The fields that should be updated. At least one field must be specified. The root `text_style` is implied and should not be specified. A single `"*"` can be used as short-hand for listing every field. For example, to update the text style to bold, set `fields` to `"bold"`. To reset a property to its default value, include its field name in the field mask but leave the field itself unset.
+    - name: range
+      TYPE: STRUCT(Range)
+      REQUIRED: false
+      comment: The range of text to style. The range may be extended to include adjacent newlines. If the range fully contains a paragraph belonging to a list, the paragraph's bullet is also updated with the matching text style. Ranges cannot be inserted inside a relative UpdateTextStyleRequest.
+    - name: textStyle
+      TYPE: STRUCT(TextStyle)
+      REQUIRED: false
+      comment: The styles to set on the text. If the value for a particular style matches that of the parent, that style will be set to inherit. Certain text style changes may cause other changes in order to to mirror the behavior of the Docs editor. See the documentation of TextStyle for more information.
+  WeightedFontFamily:
+    - name: fontFamily
+      TYPE: STRING
+      REQUIRED: false
+      comment: The font family of the text. The font family can be any font from the Font menu in Docs or from [Google Fonts] (https://fonts.google.com/). If the font name is unrecognized, the text is rendered in `Arial`.
+    - name: weight
+      TYPE: INT
+      REQUIRED: false
+      FORMAT: int32
+      comment: "The weight of the font. This field can have any value that's a multiple of `100` between `100` and `900`, inclusive. This range corresponds to the numerical values described in the CSS 2.1 Specification, [section 15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness), with non-numerical values disallowed. The default value is `400` (\"normal\"). The font weight makes up just one component of the rendered font weight. A combination of the `weight` and the text style's resolved `bold` value determine the rendered weight, after accounting for inheritance: * If the text is bold and the weight is less than `400`, the rendered weight is 400. * If the text is bold and the weight is greater than or equal to `400` but is less than `700`, the rendered weight is `700`. * If the weight is greater than or equal to `700`, the rendered weight is equal to the weight. * If the text is not bold, the rendered weight is equal to the weight."
+  WriteControl:
+    - name: requiredRevisionId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The optional revision ID of the document the write request is applied to. If this is not the latest revision of the document, the request is not processed and returns a 400 bad request error. When a required revision ID is returned in a response, it indicates the revision ID of the document after the request was applied.
+    - name: targetRevisionId
+      TYPE: STRING
+      REQUIRED: false
+      comment: The optional target revision ID of the document the write request is applied to. If collaborator changes have occurred after the document was read using the API, the changes produced by this write request are applied against the collaborator changes. This results in a new revision of the document that incorporates both the collaborator changes and the changes in the request, with the Docs server resolving conflicting changes. When using target revision ID, the API client can be thought of as another collaborator of the document. The target revision ID can only be used to write to recent versions of a document. If the target revision is too far behind the latest revision, the request is not processed and returns a 400 bad request error. The request should be tried again after retrieving the latest version of the document. Usually a revision ID remains valid for use as a target revision for several minutes after it's read, but for frequently edited documents this window might be shorter.

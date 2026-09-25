@@ -1,0 +1,894 @@
+{
+  "methods": [
+    {
+      "method_uuid": "",
+      "method_name": "Add a bookmark for a user",
+      "canonical_id": "x_v2.user.bookmarks.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add a member to a specific list",
+      "canonical_id": "x_v2.list.members.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Add members to a chat group conversation",
+      "canonical_id": "x_v2.chat.members.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Append data to an ongoing media upload",
+      "canonical_id": "x_v2.media.upload2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Append media to a chat upload session",
+      "canonical_id": "x_v2.chat.media.upload"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Block a user's direct messages",
+      "canonical_id": "x_v2.user.block.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Cancel an activity subscription",
+      "canonical_id": "x_v2.activity.subscriptions.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new bookmark folder for a user",
+      "canonical_id": "x_v2.user.folders.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new compliance job",
+      "canonical_id": "x_v2.compliance.jobs.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new draft article",
+      "canonical_id": "x_v2.article.draft.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new group chat conversation",
+      "canonical_id": "x_v2.chat.group.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new list",
+      "canonical_id": "x_v2.list.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a new tweet",
+      "canonical_id": "x_v2.tweet.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create a stream link to deliver FilteredStream events to a webhook",
+      "canonical_id": "x_v2.tweet.webhooks.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create an account activity subscription for a webhook",
+      "canonical_id": "x_v2.account_activity.all.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create an activity subscription for an event",
+      "canonical_id": "x_v2.activity.subscriptions.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create metadata for a media file",
+      "canonical_id": "x_v2.media.metadata.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create new community notes",
+      "canonical_id": "x_v2.note.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Create subtitles for a media file",
+      "canonical_id": "x_v2.media.subtitles.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a direct message event by its ID",
+      "canonical_id": "x_v2.dm_event.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a scheduled broadcast by its ID",
+      "canonical_id": "x_v2.broadcast.scheduled.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific chat message from a live broadcast",
+      "canonical_id": "x_v2.broadcast.chat.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific community note by its ID",
+      "canonical_id": "x_v2.note.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific list by its ID",
+      "canonical_id": "x_v2.list.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a specific tweet by its ID",
+      "canonical_id": "x_v2.tweet.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a webhook configuration by its ID",
+      "canonical_id": "x_v2.webhook.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete a webhook to stop receiving filtered stream events",
+      "canonical_id": "x_v2.tweet.webhooks.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete chat messages from a conversation",
+      "canonical_id": "x_v2.chat.messages.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete multiple activity subscriptions by their IDs",
+      "canonical_id": "x_v2.activity.subscriptions.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Delete subtitles for a specific media file",
+      "canonical_id": "x_v2.media.subtitles.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Download encrypted chat media bytes",
+      "canonical_id": "x_v2.chat.media.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Download media from a direct message conversation",
+      "canonical_id": "x_v2.dm_conversation.media.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Evaluate community notes",
+      "canonical_id": "x_v2.note.evaluate.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch a specific news story by its ID",
+      "canonical_id": "x_v2.new.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch a user's posts with filtering options",
+      "canonical_id": "x_v2.user.tweets.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch a user's timeline posts",
+      "canonical_id": "x_v2.user.reverseChronological.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch chat conversation events with pagination",
+      "canonical_id": "x_v2.chat.events.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch direct message events for a participant",
+      "canonical_id": "x_v2.dm_conversation.dmEvents.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch multiple posts by their IDs",
+      "canonical_id": "x_v2.tweet.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch personalized trends for users",
+      "canonical_id": "x_v2.user.personalizedTrends.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch spaces created by specific user IDs",
+      "canonical_id": "x_v2.space.creatorIds.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch trending topics by location ID",
+      "canonical_id": "x_v2.trend.woeid.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Fetch users by their usernames",
+      "canonical_id": "x_v2.user.by.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Finalize a chat media upload session",
+      "canonical_id": "x_v2.chat.media.upload1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Finalize a media upload by ID",
+      "canonical_id": "x_v2.media.upload3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Find a user's profile by their username",
+      "canonical_id": "x_v2.user.username.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Find community notes written by a user",
+      "canonical_id": "x_v2.note.notesWritten.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Find posts that can have notes added to them",
+      "canonical_id": "x_v2.note.postsEligibleForNotes.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Find users based on a search query",
+      "canonical_id": "x_v2.user.search.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Find users who liked a specific post",
+      "canonical_id": "x_v2.tweet.likingUsers.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Follow a list for a user",
+      "canonical_id": "x_v2.user.followedLists.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Follow a user by their ID",
+      "canonical_id": "x_v2.user.following.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of chat conversations for the authenticated user",
+      "canonical_id": "x_v2.chat.conversations.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of users that a specified user is following",
+      "canonical_id": "x_v2.user.following.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of users who are muting a specified user",
+      "canonical_id": "x_v2.user.muting.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a list of your scheduled broadcasts",
+      "canonical_id": "x_v2.broadcast.scheduled.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific community by its ID",
+      "canonical_id": "x_v2.community.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific list by its ID",
+      "canonical_id": "x_v2.list.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific post by its unique identifier",
+      "canonical_id": "x_v2.tweet.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a specific space by its ID",
+      "canonical_id": "x_v2.space.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a stream of X activities",
+      "canonical_id": "x_v2.activity.stream.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's affiliates and their associated data",
+      "canonical_id": "x_v2.user.affiliates.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's bookmarked posts",
+      "canonical_id": "x_v2.user.bookmarks.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's followers",
+      "canonical_id": "x_v2.user.followers.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's liked posts",
+      "canonical_id": "x_v2.user.likedTweets.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's list memberships",
+      "canonical_id": "x_v2.user.listMemberships.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's mentions",
+      "canonical_id": "x_v2.user.mentions.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's pinned lists",
+      "canonical_id": "x_v2.user.pinnedLists.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get a user's public keys for X Chat encryption",
+      "canonical_id": "x_v2.user.publicKeys.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get analytics for your posts",
+      "canonical_id": "x_v2.tweet.analytics.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get chat conversation metadata and details",
+      "canonical_id": "x_v2.chat.conversations.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get chat messages for a broadcast",
+      "canonical_id": "x_v2.broadcast.chat.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get counts for all posts matching a query",
+      "canonical_id": "x_v2.tweet.all.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get counts for your tweet search stream rules",
+      "canonical_id": "x_v2.tweet.counts.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get direct message events for a conversation",
+      "canonical_id": "x_v2.dm_conversation.dmEvents.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get direct message events with filtering and field selection",
+      "canonical_id": "x_v2.dm_event.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get live-video broadcasts for the authenticated user",
+      "canonical_id": "x_v2.broadcast.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get media analytics for specified keys and time range",
+      "canonical_id": "x_v2.media.analytics.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get media information using the media key",
+      "canonical_id": "x_v2.media.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get media upload status by ID",
+      "canonical_id": "x_v2.media.upload"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get members of a specific list",
+      "canonical_id": "x_v2.list.members.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get OpenAPI specification in JSON format",
+      "canonical_id": "x_v2.openapi.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get posts shared in a specific Space by its ID",
+      "canonical_id": "x_v2.space.tweets.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get posts that quote a specific post",
+      "canonical_id": "x_v2.tweet.quoteTweets.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get recent tweet counts by query",
+      "canonical_id": "x_v2.tweet.recent.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get retweets for a specific post",
+      "canonical_id": "x_v2.tweet.retweets.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get Spaces by their IDs",
+      "canonical_id": "x_v2.space.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the authenticated user's profile",
+      "canonical_id": "x_v2.user.me.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get the count of account activity subscriptions",
+      "canonical_id": "x_v2.account_activity.count.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get tweet usage data for a specified period",
+      "canonical_id": "x_v2.usage.tweets.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get users blocked by a specific user",
+      "canonical_id": "x_v2.user.blocking.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get users who reposted a specific post",
+      "canonical_id": "x_v2.tweet.retweetedBy.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get users' reposts of your posts",
+      "canonical_id": "x_v2.user.repostsOfMe.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webhook configurations for a client app",
+      "canonical_id": "x_v2.webhook.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get webhook links for filtered stream rules",
+      "canonical_id": "x_v2.tweet.webhooks.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Get X activity subscriptions",
+      "canonical_id": "x_v2.activity.subscriptions.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Go live on a scheduled broadcast",
+      "canonical_id": "x_v2.broadcast.live.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Hide or unhide a reply to a conversation",
+      "canonical_id": "x_v2.tweet.hidden.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Initialize a chat media upload session",
+      "canonical_id": "x_v2.chat.media.upload2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Initialize a media upload",
+      "canonical_id": "x_v2.media.upload4"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Initialize a new group chat conversation",
+      "canonical_id": "x_v2.chat.group.initialize"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Initialize or rotate encryption keys for a chat conversation",
+      "canonical_id": "x_v2.chat.keys.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Like a post for a specific user",
+      "canonical_id": "x_v2.user.likes.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List all subscriptions for a specific webhook",
+      "canonical_id": "x_v2.account_activity.all.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List compliance jobs by type and optional status",
+      "canonical_id": "x_v2.compliance.jobs.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "List users who bought tickets for a space",
+      "canonical_id": "x_v2.space.buyers.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Manage and retrieve your filtered stream rules",
+      "canonical_id": "x_v2.tweet.rules.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Manage filtered stream rules by adding, deleting, or deleting all",
+      "canonical_id": "x_v2.tweet.rules.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Mark a chat conversation as read",
+      "canonical_id": "x_v2.chat.read.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Mute a user by their ID",
+      "canonical_id": "x_v2.user.muting.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Mute a user in a broadcast chat",
+      "canonical_id": "x_v2.broadcast.mutes.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Pin a list for the authenticated user",
+      "canonical_id": "x_v2.user.pinnedLists.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Publish an article to make it publicly visible",
+      "canonical_id": "x_v2.article.publish.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Register a new webhook to receive event notifications",
+      "canonical_id": "x_v2.webhook.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Register a user's public key for X Chat encryption",
+      "canonical_id": "x_v2.user.publicKeys.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a bookmarked post by its ID",
+      "canonical_id": "x_v2.user.bookmarks.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a list member by user ID",
+      "canonical_id": "x_v2.list.members.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a retweeted post by its ID",
+      "canonical_id": "x_v2.user.retweets.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove a user's like from a tweet",
+      "canonical_id": "x_v2.user.likes.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove all account activity subscriptions for a user and webhook",
+      "canonical_id": "x_v2.account_activity.all.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Remove multiple streaming connections by UUID",
+      "canonical_id": "x_v2.connection.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Replay webhook events from the past 24 hours",
+      "canonical_id": "x_v2.webhook.replay.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Repost a post by its ID",
+      "canonical_id": "x_v2.user.retweets.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a direct message event by its ID",
+      "canonical_id": "x_v2.dm_event.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a scheduled broadcast by its ID",
+      "canonical_id": "x_v2.broadcast.scheduled.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific broadcast by its ID",
+      "canonical_id": "x_v2.broadcast.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a specific compliance job by its ID",
+      "canonical_id": "x_v2.compliance.jobs.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a user's bookmark folders",
+      "canonical_id": "x_v2.user.folders.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a user's bookmarked items within a specific folder",
+      "canonical_id": "x_v2.user.folders.get1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve a user's profile by their unique identifier",
+      "canonical_id": "x_v2.user.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve all webhook subscriptions for a specific webhook",
+      "canonical_id": "x_v2.account_activity.all.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve followers for a specific list",
+      "canonical_id": "x_v2.list.followers.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve lists a user is following",
+      "canonical_id": "x_v2.user.followedLists.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve lists owned by a user",
+      "canonical_id": "x_v2.user.ownedLists.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve media information using media keys",
+      "canonical_id": "x_v2.media.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve public encryption keys for specified users",
+      "canonical_id": "x_v2.user.publicKeys.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve streaming connection history with disconnect reasons",
+      "canonical_id": "x_v2.connection.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve tweets from a specific list",
+      "canonical_id": "x_v2.list.tweets.get"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Retrieve user information by their IDs",
+      "canonical_id": "x_v2.user.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Schedule a one-off or recurring broadcast",
+      "canonical_id": "x_v2.broadcast.scheduled.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search all posts by query with optional time or ID filtering",
+      "canonical_id": "x_v2.tweet.all.list1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search for communities using a query and specify results",
+      "canonical_id": "x_v2.community.search.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search for news articles with specified criteria",
+      "canonical_id": "x_v2.new.search.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search for spaces with optional filters and return matching results",
+      "canonical_id": "x_v2.space.search.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Search recent posts by query",
+      "canonical_id": "x_v2.tweet.recent.list1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send a chat message to a live broadcast",
+      "canonical_id": "x_v2.broadcast.chat.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send a direct message to a participant by their ID",
+      "canonical_id": "x_v2.dm_conversation.messages.create1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send a message to a direct message conversation",
+      "canonical_id": "x_v2.dm_conversation.messages.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send an encrypted chat message to a conversation",
+      "canonical_id": "x_v2.chat.messages.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Send typing indicator in a chat conversation",
+      "canonical_id": "x_v2.chat.typing.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Start a new direct message conversation",
+      "canonical_id": "x_v2.dm_conversation.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream a 1% sample of public Posts in real-time",
+      "canonical_id": "x_v2.tweet.stream.list3"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream a 10% sample of public Likes",
+      "canonical_id": "x_v2.like.stream.list2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream a 10% sample of public Posts in real-time",
+      "canonical_id": "x_v2.tweet.stream.list4"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream all public likes in real-time",
+      "canonical_id": "x_v2.like.stream.list1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream all public posts in real-time",
+      "canonical_id": "x_v2.tweet.stream.list1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream Japanese posts in real-time",
+      "canonical_id": "x_v2.tweet.ja.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream Korean posts in real-time",
+      "canonical_id": "x_v2.tweet.ko.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream labeling events for posts",
+      "canonical_id": "x_v2.tweet.stream.list2"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream Likes compliance data for users",
+      "canonical_id": "x_v2.like.stream.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream live English language posts",
+      "canonical_id": "x_v2.tweet.en.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream Portuguese posts in real-time",
+      "canonical_id": "x_v2.tweet.pt.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream Posts compliance data",
+      "canonical_id": "x_v2.tweet.stream.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream real-time Posts matching your rules",
+      "canonical_id": "x_v2.tweet.stream.list5"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Stream user compliance data",
+      "canonical_id": "x_v2.user.stream.list"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Terminate all active streaming connections",
+      "canonical_id": "x_v2.connection.all.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Terminate streaming connections for a specific endpoint",
+      "canonical_id": "x_v2.connection.delete1"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Trigger a CRC check for a webhook",
+      "canonical_id": "x_v2.webhook.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Unblock a user's direct messages",
+      "canonical_id": "x_v2.user.unblock.create"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Unfollow a list by its ID",
+      "canonical_id": "x_v2.user.followedLists.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Unfollow a specific user by their ID",
+      "canonical_id": "x_v2.user.following.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Unmute a user",
+      "canonical_id": "x_v2.user.muting.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Unmute a user in a broadcast chat",
+      "canonical_id": "x_v2.broadcast.mutes.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Unpin a list by its ID",
+      "canonical_id": "x_v2.user.pinnedLists.delete"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a scheduled broadcast's details",
+      "canonical_id": "x_v2.broadcast.scheduled.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update a specific list owned by the authenticated user",
+      "canonical_id": "x_v2.list.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Update an activity subscription by ID",
+      "canonical_id": "x_v2.activity.subscriptions.update"
+    },
+    {
+      "method_uuid": "",
+      "method_name": "Upload media for posts and content",
+      "canonical_id": "x_v2.media.upload1"
+    }
+  ]
+}
