@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+data
+.env
+.env.*
+.claude
+.vercel
+*.tsbuildinfo
+.swytchcode/workspace.json
+.swytchcode/*.db
