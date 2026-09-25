@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     async start(controller) {
       const send = (e: AgentEvent) => controller.enqueue(encoder.encode(`data: ${JSON.stringify(e)}\n\n`));
       try {
-        if (missing.length) throw Object.assign(new Error("config"), { userMessage: `The server isn't configured yet: missing ${missing.join(", ")}. Add it to .env.local and restart.` });
+        if (missing.length) throw Object.assign(new Error("config"), { userMessage: `The server isn't configured yet: missing ${missing.join(", ")}. Locally run "npm run setup" and restart; on Vercel add it under Settings → Environment Variables and redeploy.` });
         let input: Parameters<typeof runTurn>[1];
         if (body?.resume) {
           if (!(await pendingInterrupt(sessionId))) throw Object.assign(new Error("nothing pending"), { userMessage: "Nothing is waiting for an answer anymore." });
